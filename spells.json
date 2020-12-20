@@ -1491,7 +1491,8 @@
                         "operator":"==",
                         "value":false
                     }
-                }
+                },
+                "prerequisites_match": "all"
             },
             {
                 "name":"Repeating Damage",
@@ -1509,6 +1510,7 @@
                         "value":true
                     }
                 },
+                "prerequisites_match": "all",
                 "damage":{
                     "roll":"3d6",
                     "type":"bludgeoning:magical"
@@ -1708,7 +1710,8 @@
                             "construct"
                         ]
                     }
-                }
+                },
+                "prerequisites_match": "all"
             }
         ],
         "effects": [
@@ -1733,6 +1736,7 @@
                         "value":"plant"
                     }
                 },
+                "prerequisites_match": "all",
                 "slot_scale":[
                     {
                         "path":"damage.roll",
@@ -1760,6 +1764,7 @@
                                 "value":"plant"
                             }
                         },
+                        "prerequisites_match": "all",
                         "slot_scale":[
                             {
                                 "path":"damage.roll",
@@ -1790,6 +1795,7 @@
                         "value":"plant"
                     }
                 },
+                "prerequisites_match": "all",
                 "slot_scale":[
                     {
                         "path":"damage.roll",
@@ -1817,6 +1823,7 @@
                                 "value":"plant"
                             }
                         },
+                        "prerequisites_match": "all",
                         "slot_scale":[
                             {
                                 "path":"damage.roll",
@@ -2081,7 +2088,8 @@
                 "types":[
                     "damage",
                     "save",
-                    "slot_scale"
+                    "slot_scale",
+                    "failure_effect"
                 ],
                 "save":"dexterity",
                 "damage":{
@@ -2092,6 +2100,24 @@
                     {
                         "path":"damage.roll",
                         "value":"1d6"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Burning Hands",
+                        "types":[
+                            "damage"
+                        ],
+                        "damage":{
+                            "roll":"3d6/2",
+                            "type":"fire"
+                        },
+                        "slot_scale":[
+                            {
+                                "path":"damage.roll",
+                                "value":"1d6"
+                            }
+                        ]
                     }
                 ]
             }
@@ -2203,8 +2229,49 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Multiple Targets",
+                "types":[
+                    "specific",
+                    "slot_scale"
+                ],
+                "count":4,
+                "slot_scale":[
+                    {
+                        "path":"count",
+                        "value":1
+                    }
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Chain Lightning",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect"
+                ],
+                "save":"dexterity",
+                "damage":{
+                    "roll":"10d8",
+                    "type":"lightning"
+                },
+                "fail":[
+                    {
+                        "name":"Chain Lightning",
+                        "types":[
+                            "damage"
+                        ],
+                        "damage":{
+                            "roll":"10d8/2",
+                            "type":"lightning"
+                        }
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 7th level or higher, one additional bolt leaps from the first target to another target for each slot level above 6th."
     },
     {
@@ -2244,8 +2311,33 @@
             "archetype": "Cleric: Trickery",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific",
+                    "slot_scale"
+                ],
+                "count":1,
+                "slot_scale":[
+                    {
+                        "path":"count",
+                        "value":1
+                    }
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Charm Person",
+                "types":[
+                    "save",
+                    "condition"
+                ],
+                "save":"wisdom",
+                "condition":"charmed"
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them."
     },
     {
@@ -2282,8 +2374,43 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Chill Touch",
+                "types":[
+                    "spell_attack",
+                    "damage",
+                    "cantrip_scaling"
+                ],
+                "damage":{
+                    "roll":"1d8",
+                    "type":"necrotic"
+                },
+                "cantrip_scaling":{
+                    "5":{
+                        "target":"damage.roll",
+                        "value":"2d8"
+                    },
+                    "11":{
+                        "target":"damage.roll",
+                        "value":"3d8"
+                    },
+                    "17":{
+                        "target":"damage.roll",
+                        "value":"4d8"
+                    }
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -2317,8 +2444,57 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":120,
+                "area_type":"sphere"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Circle of Death",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save":"constitution",
+                "damage":{
+                    "roll":"8d6",
+                    "type":"necrotic"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"2d6"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Circle of Death",
+                        "types":[
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage":{
+                            "roll":"8d6/2",
+                            "type":"necrotic"
+                        },
+                        "slot_scale":[
+                            {
+                                "path":"damage.roll",
+                                "value":"2d6/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 7th level or higher, the damage increases by 2d6 for each slot level above 6th."
     },
     {
@@ -2429,8 +2605,62 @@
             "archetype": "Druid: Underdark",
             "circles": "Underdark"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area",
+                    "hazard"
+                ],
+                "area":40,
+                "area_type":"sphere",
+                "hazard_triggers":[
+                    "enters",
+                    "turn_start"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Cloudkill",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save":"constitution",
+                "damage":{
+                    "roll":"5d8",
+                    "type":"poison"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d8"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Cloudkill",
+                        "types":[
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage":{
+                            "roll":"5d8/2",
+                            "type":"necrotic"
+                        },
+                        "slot_scale":[
+                            {
+                                "path":"damage.roll",
+                                "value":"1d8/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th."
     },
     {
@@ -2467,8 +2697,48 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Multiple Targets",
+                "types":[
+                    "area",
+                    "prerequisites",
+                    "hp_selection",
+                    "slot_scale"
+                ],
+                "area":15,
+                "area_type":"cone",
+                "prerequisites":{
+                    "condition:unconscious":{
+                        "operator":"==",
+                        "value":false
+                    },
+                    "condition:blinded":{
+                        "operator":"==",
+                        "value":false
+                    }
+                },
+                "hp_roll":"6d10",
+                "hp_sort":"ascending",
+                "slot_scale":[
+                    {
+                        "path":"hp_roll",
+                        "value":"2d10"
+                    }
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Color Spray",
+                "types":[
+                    "save",
+                    "condition"
+                ],
+                "save":"constitution",
+                "condition":"blinded"
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, roll an additional 2d10 for each slot level above 1st."
     },
     {
@@ -2690,8 +2960,57 @@
             "archetype": "Druid: Arctic",
             "circles": "Arctic"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":60,
+                "area_type":"cone"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Cone of Cold",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save":"constitution",
+                "damage":{
+                    "roll":"8d8",
+                    "type":"cold"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d8"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Cone of Cold",
+                        "types":[
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage":{
+                            "roll":"8d8/2",
+                            "type":"cold"
+                        },
+                        "slot_scale":[
+                            {
+                                "path":"damage.roll",
+                                "value":"1d8/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th."
     },
     {
@@ -3384,8 +3703,34 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Cure Wounds",
+                "types":[
+                    "damage",
+                    "slot_scale"
+                ],
+                "damage":{
+                    "roll":"1d8+{spellcasting_ability_modifier}",
+                    "type":"heal"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d8"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d8 for each slot level above 1st."
     },
     {

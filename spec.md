@@ -35,6 +35,9 @@
   - `hazard_triggers` - [list] (required)
     - Item - "string" (required at least 1) Any of `enters`, `exits`, `turn_start`, `turn_end`
 - `single_option` - Indicates that this option should not be selected along with other targets with the `single_option` flag.
+- `hp_selection` - Indicates that the targets are selected via HP (i.e. the sleep spell)
+  - `hp_roll` - "roll string" (required) The amount of HP to affect. Treated as a roll string.
+  - `hp_sort` - "string" (required) Sorting of creatures to affect based on HP. Can be `ascending` or `descending`.
 
 ### Effects
 - `spell_attack` - Indicates a spell attack
@@ -108,3 +111,9 @@
       - `roll` - "roll string" (required) Damage roll
       - `type` - "string" (required) Damage type or "heal". Can also have flags, such as `:magical` or `:adamantine`
     - `end_on_uses` - (int) (optional) Attacks that can be made until the effect ends. Defaults to unlimited if not included.
+
+### Formatting Flags
+Some string values can contain formatting flags, as listed below.
+
+- Roll Strings
+  - `{spellcasting_ability_modifier}` - The caster's spellcasting ability modifier.
