@@ -34,7 +34,7 @@
 - `hazard` - Indicates that the spell will not immediately target creatures but will instead act as a hazard.
   - `hazard_triggers` - [list] (required)
     - Item - "string" (required at least 1) Any of `enters`, `exits`, `turn_start`, `turn_end`
-- `single_option` - Indicates that this option should not be selected along with other effects with the `single_option` flag.
+- `single_option` - Indicates that this option should not be selected along with other targets with the `single_option` flag.
 
 ### Effects
 - `spell_attack` - Indicates a spell attack
@@ -101,3 +101,10 @@
       - `affected:<any>` - Selects a specific spell effect, such as `affected:Black Tentacles`
   - `prerequisites_match` - "string" (required) Either of `all`, `any`. Indicates whether the target must match all or any of the prerequisites.
 - `single_option` - Indicates that this option should not be selected along with other effects with the `single_option` flag.
+- `attack_modifier` - Indicates that the effect modifies the target's attacks.
+  - `attack_modifier` - {dict} (required)
+    - `type` - "string" (required) Any of `damage`, `advantage`, `disadvantage`.
+    - `damage` - {dict} (required if `type` == `damage`)
+      - `roll` - "roll string" (required) Damage roll
+      - `type` - "string" (required) Damage type or "heal". Can also have flags, such as `:magical` or `:adamantine`
+    - `end_on_uses` - (int) (optional) Attacks that can be made until the effect ends. Defaults to unlimited if not included.

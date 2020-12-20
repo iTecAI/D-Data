@@ -1719,7 +1719,8 @@
                     "damage",
                     "prerequisites",
                     "slot_scale",
-                    "required"
+                    "required",
+                    "failure_effect"
                 ],
                 "save":"constitution",
                 "damage":{
@@ -1736,6 +1737,35 @@
                     {
                         "path":"damage.roll",
                         "value":"1d8"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Regular Blight",
+                        "types":[
+                            "save",
+                            "damage",
+                            "prerequisites",
+                            "slot_scale",
+                            "required"
+                        ],
+                        "save":"constitution",
+                        "damage":{
+                            "roll":"8d8/2",
+                            "type":"necrotic"
+                        },
+                        "prerequisites":{
+                            "creature_type":{
+                                "operator":"!=",
+                                "value":"plant"
+                            }
+                        },
+                        "slot_scale":[
+                            {
+                                "path":"damage.roll",
+                                "value":"1d8/2"
+                            }
+                        ]
                     }
                 ]
             },
@@ -1764,6 +1794,35 @@
                     {
                         "path":"damage.roll",
                         "value":"8"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Regular Blight",
+                        "types":[
+                            "save",
+                            "damage",
+                            "prerequisites",
+                            "slot_scale",
+                            "required"
+                        ],
+                        "save":"constitution",
+                        "damage":{
+                            "roll":"32",
+                            "type":"necrotic"
+                        },
+                        "prerequisites":{
+                            "creature_type":{
+                                "operator":"!=",
+                                "value":"plant"
+                            }
+                        },
+                        "slot_scale":[
+                            {
+                                "path":"damage.roll",
+                                "value":"4"
+                            }
+                        ]
                     }
                 ]
             }
@@ -1957,7 +2016,22 @@
             "circles": ""
         },
         "targets": [],
-        "effects": [],
+        "effects": [
+            {
+                "name":"Branding Smite",
+                "types":[
+                    "attack_modifier"
+                ],
+                "attack_modifier":{
+                    "type":"damage",
+                    "damage":{
+                        "roll":"2d6",
+                        "type":"radiant"
+                    },
+                    "end_on_uses":1
+                }
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 3rd level or higher, the extra damage increases by 1d6 for each slot level above 2nd."
     },
     {
@@ -1991,8 +2065,37 @@
             "archetype": "Cleric: Light<br/> Warlock: Fiend",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":15,
+                "type":"cone"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Burning Hands",
+                "types":[
+                    "damage",
+                    "save",
+                    "slot_scale"
+                ],
+                "save":"dexterity",
+                "damage":{
+                    "roll":"3d6",
+                    "type":"fire"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d6"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
     },
     {
