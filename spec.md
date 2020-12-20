@@ -6,19 +6,35 @@
 - `specific` - Indicates a number of specific targets
   - `count` - (int)/"string" (required) Number of targets, or "any".
 - `area` - Indicates that the targets should be within an area
-  - `area` - (int) (required) Area width/diameter in feet
-  - `area_type` - "string" (required) `sphere`, `cube`, `line`, `cone`, `cylinder`
+  - `area` - (int)/{dict} (required) Area width/diameter in feet or one of the following dictionaries.
+    - If `area_type` == `rectangle`:
+      - `length` - (int) (required) Max length
+      - `width` - (int) (required) Width
+      - `height` - (int) (required) Height
+    - If `area_type` == `ring`:
+      - `diameter` - (int) (required) Max diameter
+      - `thickness` - (int) (required) Ring thickness
+      - `height` - (int) (required) Ring height
+  - `area_type` - "string" (required) `sphere`, `cube`, `line`, `cone`, `cylinder`, `square`, `rectangle`, `ring`
 - `prerequisites` - Indicates that the spell has prerequisites
   - `prerequisites` - {dict} (required) Prerequisite definitions
-    - `{prerequisite name}` - {dict} (required at least 1)
+    - `{prerequisite name}` - {dict} (required at least 1).
       - `operator` - "string" (required) Comparison operator (`==`,`<=`,`>=`,`<`,`>`,`!=`) to apply to the `value`
-      - `value` - (any) (required) Value to check
+      - `value` - (any) (required) Value to check. If [list], checks all.
+    - NOTE: Possible values for {prerequisite name}.
+      - Any creature attribute path
+      - `condition:<any>` - Selects a specific condition
+      - `affected:<any>` - Selects a specific spell effect, such as `affected:Black Tentacles`
   - `prerequisites_match` - "string" (required) Either of `all`, `any`. Indicates whether the target must match all or any of the prerequisites.
 - `slot_scale` - Indicates that the spell scales with higher slot levels
   - `slot_scale` - [list] (required)
     - Item - {dict} (required at least 1)
       - `path` - "string" (required) Path to value to append the value to.
       - `value` - (any) (required) Value to add.
+- `hazard` - Indicates that the spell will not immediately target creatures but will instead act as a hazard.
+  - `hazard_triggers` - [list] (required)
+    - Item - "string" (required at least 1) Any of `enters`, `exits`, `turn_start`, `turn_end`
+- `single_option` - Indicates that this option should not be selected along with other effects with the `single_option` flag.
 
 ### Effects
 - `spell_attack` - Indicates a spell attack
@@ -27,14 +43,17 @@
 - `damage` - Indicates that the effect will deal damage on a hit/failed save
   - `damage` - {dict} (required)
     - `roll` - "roll string" (required) Roll string
-    - `type` - "string" (required) Damage type
+    - `type` - "string" (required) Damage type or "heal". Can also have flags, such as `:magical` or `:adamantine`
     - `recurring` - {dict} (optional) Include if damage continues after the first dealing
       - `roll` - "roll string" (required) Roll string
-      - `type` - "string" (required) Damage type
+      - `type` - "string" (required) Damage type or "heal". Can also have flags, such as `:magical` or `:adamantine`
       - `rounds` - (int) (required) Number of rounds to recur for
       - `turn` - "string" (required) Whether to damage on the `start` or `end` of the turn
 - `save` - Indicates that a save must be made
   - `save` - "string" (required) Save name, such as `strength` or `dexterity`
+  - `save_modifier` - "string" (optional) Add a modifier, `advantage`, or `disadvantage` to the saving throw.
+- `save_repeat` - Indicates that the save should be repeated each round.
+  - `save_repeat` - "string" (required) When the save should occur on the target's turn. Any of `start` or `end`.
 - `cantrip_scaling` - Indicates that the spell will change as the player levels.
   - `{level number}` - {dict} (required at least 1)
     - `target` - "string" (required) Path inside the effect dict, such that damage:{roll:-} -> `damage.roll`
@@ -51,11 +70,34 @@
 - `flavor` - Indicates that the effect will output flavor text on a success
   - `flavor` - "string" (required) Flavor text to output/report
 - `roll_modifier` - Indicates that the effect will modify the target's rolls on a success
-  - `modifier` - {dict} (required)
-    - `roll` - "roll string" (required) Roll string to add to the target's rolls.
+  - `roll_modifier` - {dict} (required)
+    - `roll` - "string" (required) Roll string to add to the target's rolls, or "advantage"/"disadvantage".
     - `affected` - [list] (required at least one) List of rolls to affect. May be `attacks`, `saves`, or `checks`. May also be more specific for `saves` and `checks`, such as `checks.stealth` or `saves.intelligence`
+    - `source` - "string" (optional) Restricts effect to rolls caused by/targeted at `source`. Current options: `caster`.
 - `slot_scale` - Indicates that the spell scales with higher slot levels
   - `slot_scale` - [list] (required)
     - Item - {dict} (required at least 1)
       - `path` - "string" (required) Path to value to append the value to.
       - `value` - (any) (required) Value to add.
+- `damage_modifier` - Indicates that the damage the target takes will be affected on a success.
+  - `damage_modifier` - {dict} (required)
+    - `types` - [list] (required) List of damage types to affect.
+    - `operation` - "string" (required) `min`, `max`, or a roll string modifier such as `+5` or `*2`.
+    - - `source` - "string" (optional) Restricts effect to damage caused by `source`. Current options: `caster`.
+- `bonus_inflicted_damage` - Indicates that another full damage element will be added to attacks that hit the target.
+  - `bonus_inflicted_damage` - {dict} (required)
+    - `types` - [list]/"string" (required) List of damage types to affect or "any"
+    - `roll` - "roll string" (required) Roll string to add.
+    - `damage_type` - "string" (required) Damage type or "heal". Can also have flags, such as `:magical` or `:adamantine`
+    - `source` - "string" (optional) Restricts effect to damage caused by `source`. Current options: `caster`.
+- `prerequisites` - Indicates that the spell has prerequisites
+  - `prerequisites` - {dict} (required) Prerequisite definitions
+    - `{prerequisite name}` - {dict} (required at least 1).
+      - `operator` - "string" (required) Comparison operator (`==`,`<=`,`>=`,`<`,`>`,`!=`) to apply to the `value`
+      - `value` - (any) (required) Value to check. If [list], checks all.
+    - NOTE: Possible values for {prerequisite name}.
+      - Any creature attribute path
+      - `condition:<any>` - Selects a specific condition
+      - `affected:<any>` - Selects a specific spell effect, such as `affected:Black Tentacles`
+  - `prerequisites_match` - "string" (required) Either of `all`, `any`. Indicates whether the target must match all or any of the prerequisites.
+- `single_option` - Indicates that this option should not be selected along with other effects with the `single_option` flag.

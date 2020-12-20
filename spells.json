@@ -115,7 +115,8 @@
             {
                 "name": "Single Target",
                 "types": [
-                    "specific"
+                    "specific",
+                    "single_option"
                 ],
                 "count": 1
             },
@@ -123,7 +124,8 @@
                 "name": "Two Targets",
                 "types": [
                     "specific",
-                    "area"
+                    "area",
+                    "single_option"
                 ],
                 "count": 2,
                 "area": 5,
@@ -234,7 +236,7 @@
                 ],
                 "damage": {
                     "roll": "-5",
-                    "type": null
+                    "type": "heal"
                 },
                 "slot_scale":[
                     {
@@ -1006,7 +1008,13 @@
                 "types": [
                     "specific"
                 ],
-                "count": 3
+                "count": 3,
+                "slot_scale":[
+                    {
+                        "path":"count",
+                        "value":1
+                    }
+                ]
             }
         ],
         "effects": [
@@ -1017,7 +1025,7 @@
                     "roll_modifier"
                 ],
                 "save": "charisma",
-                "modifier": {
+                "roll_modifier": {
                     "roll": "-d4",
                     "affected": [
                         "attacks",
@@ -1191,8 +1199,37 @@
             "archetype": "Paladin: Devotion",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Choice of Targets",
+                "types":[
+                    "specific"
+                ],
+                "count":"any"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Beacon of Hope",
+                "types":[
+                    "roll_modifier",
+                    "damage_modifier"
+                ],
+                "roll_modifier":{
+                    "roll":"advantage",
+                    "affected":[
+                        "saves.wisdom",
+                        "saves.death"
+                    ]
+                },
+                "damage_modifier":{
+                    "types":[
+                        "heal"
+                    ],
+                    "operation":"max"
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -1229,8 +1266,155 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Debuff Ability Score - Strength",
+                "types":[
+                    "save",
+                    "roll_modifier",
+                    "single_option"
+                ],
+                "save":"wisdom",
+                "roll_modifier":{
+                    "roll":"disadvantage",
+                    "affected":[
+                        "saves.strength",
+                        "checks.strength"
+                    ]
+                }
+            },
+            {
+                "name":"Debuff Ability Score - Dexterity",
+                "types":[
+                    "save",
+                    "roll_modifier",
+                    "single_option"
+                ],
+                "save":"wisdom",
+                "roll_modifier":{
+                    "roll":"disadvantage",
+                    "affected":[
+                        "saves.dexterity",
+                        "checks.dexterity"
+                    ]
+                }
+            },
+            {
+                "name":"Debuff Ability Score - Constitution",
+                "types":[
+                    "save",
+                    "roll_modifier",
+                    "single_option"
+                ],
+                "save":"wisdom",
+                "roll_modifier":{
+                    "roll":"disadvantage",
+                    "affected":[
+                        "saves.constitution",
+                        "checks.constitution"
+                    ]
+                }
+            },
+            {
+                "name":"Debuff Ability Score - Intelligence",
+                "types":[
+                    "save",
+                    "roll_modifier",
+                    "single_option"
+                ],
+                "save":"wisdom",
+                "roll_modifier":{
+                    "roll":"disadvantage",
+                    "affected":[
+                        "saves.intelligence",
+                        "checks.intelligence"
+                    ]
+                }
+            },
+            {
+                "name":"Debuff Ability Score - Wisdom",
+                "types":[
+                    "save",
+                    "roll_modifier",
+                    "single_option"
+                ],
+                "save":"wisdom",
+                "roll_modifier":{
+                    "roll":"disadvantage",
+                    "affected":[
+                        "saves.wisdom",
+                        "checks.wisdom"
+                    ]
+                }
+            },
+            {
+                "name":"Debuff Ability Score - Charisma",
+                "types":[
+                    "save",
+                    "roll_modifier",
+                    "single_option"
+                ],
+                "save":"wisdom",
+                "roll_modifier":{
+                    "roll":"disadvantage",
+                    "affected":[
+                        "saves.charisma",
+                        "checks.charisma"
+                    ]
+                }
+            },
+            {
+                "name":"Debuff Attack Rolls",
+                "types":[
+                    "save",
+                    "roll_modifier",
+                    "single_option"
+                ],
+                "save":"wisdom",
+                "roll_modifier":{
+                    "roll":"disadvantage",
+                    "affected":[
+                        "attacks"
+                    ],
+                    "source":"caster"
+                }
+            },
+            {
+                "name":"Wasted Action",
+                "types":[
+                    "save",
+                    "flavor",
+                    "single_option"
+                ],
+                "save":"wisdom",
+                "flavor":"While Cursed, the target must make a Wisdom saving throw at the start of each of its turns. If it fails, it wastes its action that turn doing nothing."
+            },
+            {
+                "name":"Increased Damage",
+                "types":[
+                    "save",
+                    "bonus_inflicted_damage",
+                    "single_option"
+                ],
+                "save":"wisdom",
+                "bonus_inflicted_damage":{
+                    "types":"any",
+                    "roll":"1d8",
+                    "damage_type":"necrotic",
+                    "source":"caster"
+                }
+            }
+            
+        ],
         "higher_level": "If you cast this spell using a spell slot of 4th level or higher, the duration is concentration, up to 10 minutes. If you use a spell slot of 5th level or higher, the duration is 8 hours. If you use a spell slot of 7th level or higher, the duration is 24 hours. If you use a 9th level spell slot, the spell lasts until it is dispelled. Using a spell slot of 5th level or higher grants a duration that doesn't require concentration."
     },
     {
@@ -1267,8 +1451,70 @@
             "archetype": "Warlock: Great Old One",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area",
+                    "hazard"
+                ],
+                "area":20,
+                "area_type":"square",
+                "hazard_triggers":[
+                    "enters",
+                    "turn_start"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Black Tentacles - Restrain",
+                "types":[
+                    "save",
+                    "damage",
+                    "condition",
+                    "required",
+                    "prerequisites"
+                ],
+                "save":"dexterity",
+                "damage":{
+                    "roll":"3d6",
+                    "type":"bludgeoning:magical"
+                },
+                "condition":"restrained",
+                "prerequisites":{
+                    "condition:restrained":{
+                        "operator":"==",
+                        "value":false
+                    },
+                    "affected:Black Tentacles - Restrain":{
+                        "operator":"==",
+                        "value":false
+                    }
+                }
+            },
+            {
+                "name":"Repeating Damage",
+                "types":[
+                    "prerequisites",
+                    "damage"
+                ],
+                "prerequisites":{
+                    "condition:restrained":{
+                        "operator":"==",
+                        "value":true
+                    },
+                    "affected:Black Tentacles - Restrain":{
+                        "operator":"==",
+                        "value":true
+                    }
+                },
+                "damage":{
+                    "roll":"3d6",
+                    "type":"bludgeoning:magical"
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -1303,8 +1549,56 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Wall",
+                "types":[
+                    "area",
+                    "hazard"
+                ],
+                "area_type":"rectangle",
+                "area":{
+                    "length":100,
+                    "width":5,
+                    "height":20
+                },
+                "hazard_triggers":[
+                    "enters",
+                    "turn_start"
+                ]
+            },
+            {
+                "name":"Ringed Wall",
+                "types":[
+                    "area",
+                    "hazard"
+                ],
+                "area_type":"ring",
+                "area":{
+                    "diameter":60,
+                    "thickness":5,
+                    "height":20
+                },
+                "hazard_triggers":[
+                    "enters",
+                    "turn_start"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Blade Barrier",
+                "types":[
+                    "save",
+                    "damage"
+                ],
+                "save":"dexterity",
+                "damage":{
+                    "roll":"6d10",
+                    "type":"slashing:magical"
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -1341,8 +1635,30 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Multiple Targets",
+                "types":[
+                    "specific"
+                ],
+                "count":3
+            }
+        ],
+        "effects": [
+            {
+                "name":"Bless",
+                "types":[
+                    "roll_modifier"
+                ],
+                "roll_modifier":{
+                    "roll":"d4",
+                    "affected":[
+                        "attacks",
+                        "saves"
+                    ]
+                }
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st."
     },
     {
@@ -1376,8 +1692,82 @@
             "archetype": "",
             "circles": "Desert"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific",
+                    "prerequisites"
+                ],
+                "count":1,
+                "prerequisites":{
+                    "creature_type":{
+                        "operator":"!=",
+                        "value":[
+                            "undead",
+                            "construct"
+                        ]
+                    }
+                }
+            }
+        ],
+        "effects": [
+            {
+                "name":"Regular Blight",
+                "types":[
+                    "save",
+                    "damage",
+                    "prerequisites",
+                    "slot_scale",
+                    "required"
+                ],
+                "save":"constitution",
+                "damage":{
+                    "roll":"8d8",
+                    "type":"necrotic"
+                },
+                "prerequisites":{
+                    "creature_type":{
+                        "operator":"!=",
+                        "value":"plant"
+                    }
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d8"
+                    }
+                ]
+            },
+            {
+                "name":"Plant Blight",
+                "types":[
+                    "save",
+                    "damage",
+                    "prerequisites",
+                    "slot_scale",
+                    "required"
+                ],
+                "save":"constitution",
+                "save_modifier":"disadvantage",
+                "damage":{
+                    "roll":"64",
+                    "type":"necrotic"
+                },
+                "prerequisites":{
+                    "creature_type":{
+                        "operator":"==",
+                        "value":"plant"
+                    }
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"8"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 5th level of higher, the damage increases by 1d8 for each slot level above 4th."
     },
     {
@@ -1415,8 +1805,48 @@
             "archetype": "Warlock: Fiend",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Single Target",
+                "types": [
+                    "specific",
+                    "slot_scale"
+                ],
+                "count": 1,
+                "slot_scale":[
+                    {
+                        "path":"count",
+                        "value":1
+                    }
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Blindness",
+                "types":[
+                    "save",
+                    "condition",
+                    "single_option",
+                    "save_repeat"
+                ],
+                "save":"constitution",
+                "condition":"blinded",
+                "save_repeat":"end"
+            },
+            {
+                "name":"Deafness",
+                "types":[
+                    "save",
+                    "condition",
+                    "single_option",
+                    "save_repeat"
+                ],
+                "save":"constitution",
+                "condition":"deafened",
+                "save_repeat":"end"
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd."
     },
     {
