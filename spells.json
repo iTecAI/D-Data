@@ -5946,8 +5946,120 @@
             "archetype": "Paladin: Devotion<br/> Warlock: Fiend",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":20,
+                "area_type":"circle"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Flame Strike - Fire Scaling",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save":"dexterity",
+                "damage":[
+                    {
+                        "roll":"4d6",
+                        "type":"fire"
+                    },
+                    {
+                        "roll":"4d6",
+                        "type":"radiant"
+                    }
+                ],
+                "slot_scale":[
+                    {
+                        "path":"damage.0.roll",
+                        "value":"1d6"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Flame Strike - Fire Scaling",
+                        "types":[
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage":[
+                            {
+                                "roll":"4d6/2",
+                                "type":"fire"
+                            },
+                            {
+                                "roll":"4d6/2",
+                                "type":"radiant"
+                            }
+                        ],
+                        "slot_scale":[
+                            {
+                                "path":"damage.0.roll",
+                                "value":"1d6/2"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name":"Flame Strike - Radiant Scaling",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save":"dexterity",
+                "damage":[
+                    {
+                        "roll":"4d6",
+                        "type":"fire"
+                    },
+                    {
+                        "roll":"4d6",
+                        "type":"radiant"
+                    }
+                ],
+                "slot_scale":[
+                    {
+                        "path":"damage.1.roll",
+                        "value":"1d6"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Flame Strike - Radiant Scaling",
+                        "types":[
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage":[
+                            {
+                                "roll":"4d6/2",
+                                "type":"fire"
+                            },
+                            {
+                                "roll":"4d6/2",
+                                "type":"radiant"
+                            }
+                        ],
+                        "slot_scale":[
+                            {
+                                "path":"damage.1.roll",
+                                "value":"1d6/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 6th level or higher, the fire damage or the radiant damage (your choice) increases by 1d6 for each slot level above 5th."
     },
     {
@@ -5985,8 +6097,61 @@
             "archetype": "Cleric: Light",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "hazard",
+                    "area"
+                ],
+                "area":15,
+                "area_type":"sphere",
+                "hazard_triggers":[
+                    "turn_end"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Flaming Sphere",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save":"dexterity",
+                "damage":{
+                    "roll":"2d6",
+                    "type":"fire"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d6"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Flaming Sphere",
+                        "types":[
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage":{
+                            "roll":"2d6/2",
+                            "type":"fire"
+                        },
+                        "slot_scale":[
+                            {
+                                "path":"damage.roll",
+                                "value":"1d6/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot level above 2nd."
     },
     {
@@ -6331,8 +6496,57 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":120,
+                "area_type":"sphere"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Freezing Sphere",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save":"constitution",
+                "damage":{
+                    "roll":"10d6",
+                    "type":"cold"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d6"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Freezing Sphere",
+                        "types":[
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage":{
+                            "roll":"10d6/2",
+                            "type":"cold"
+                        },
+                        "slot_scale":[
+                            {
+                                "path":"damage.roll",
+                                "value":"1d6/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 7th level or higher, the damage increases by 1d6 for each slot level above 6th."
     },
     {
@@ -6449,8 +6663,28 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Geas",
+                "types":[
+                    "condition",
+                    "save",
+                    "flavor"
+                ],
+                "save":"wisdom",
+                "condition":"charmed",
+                "flavor":"While the creature is charmed by you, it takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. A creature that can't understand you is unaffected by the spell."
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 7th or 8th level, the duration is 1 year. When you cast this spell using a spell slot of 9th level, the spell lasts until it is ended by one of the spells mentioned above."
     },
     {
@@ -6704,8 +6938,33 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area",
+                    "hazard"
+                ],
+                "area":10,
+                "area_type":"square",
+                "hazard_triggers":[
+                    "enters",
+                    "turn_end",
+                    "on_cast"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Grease",
+                "types":[
+                    "save",
+                    "condition"
+                ],
+                "save":"dexterity",
+                "condition":"prone"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -6744,8 +7003,24 @@
             "archetype": "Druid: Underdark<br/> Warlock: Archfey",
             "circles": "Underdark"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Greater Invisibility",
+                "types":[
+                    "condition"
+                ],
+                "condition":"invisible"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -6889,8 +7164,28 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Guidance",
+                "types":[
+                    "roll_modifier"
+                ],
+                "roll_modifier":{
+                    "roll":"d4",
+                    "affected":"checks",
+                    "end_on_uses":1
+                }
+            }
+        ],
         "higher_level": ""
     },
     {

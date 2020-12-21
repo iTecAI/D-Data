@@ -15,7 +15,7 @@
       - `diameter` - (int) (required) Max diameter
       - `thickness` - (int) (required) Ring thickness
       - `height` - (int) (required) Ring height
-  - `area_type` - "string" (required) `sphere`, `cube`, `line`, `cone`, `cylinder`, `square`, `rectangle`, `ring`
+  - `area_type` - "string" (required) `sphere`, `cube`, `line`, `cone`, `square`, `rectangle`, `ring`
 - `prerequisites` - Indicates that the spell has prerequisites
   - `prerequisites` - {dict} (required) Prerequisite definitions
     - `{prerequisite name}` - {dict} (required at least 1).
@@ -33,7 +33,7 @@
       - `value` - (any) (required) Value to add.
 - `hazard` - Indicates that the spell will not immediately target creatures but will instead act as a hazard.
   - `hazard_triggers` - [list] (required)
-    - Item - "string" (required at least 1) Any of `enters`, `exits`, `turn_start`, `turn_end`
+    - Item - "string" (required at least 1) Any of `enters`, `exits`, `turn_start`, `turn_end`, `on_cast` (Effects will trigger on casting as well as on hazard triggers)
 - `single_option` - Indicates that this option should not be selected along with other targets with the `single_option` flag.
 - `hp_selection` - Indicates that the targets are selected via HP (i.e. the sleep spell)
   - `hp_roll` - "roll string" (required) The amount of HP to affect. Treated as a roll string.
@@ -49,7 +49,7 @@
 - `failure_effect` - Indicates some effect will occur on a miss/successful save
   - `fail` - [list] (required) List of **Effects**.
 - `damage` - Indicates that the effect will deal damage on a hit/failed save
-  - `damage` - {dict} (required)
+  - `damage` - {dict} (required) Can also be [list] of {dicts}
     - `roll` - "roll string" (required) Roll string
     - `type` - "string" (required) Damage type or "heal". Can also have flags, such as `:magical` or `:adamantine`
     - `recurring` - {dict} (optional) Include if damage continues after the first dealing
@@ -82,6 +82,7 @@
     - `roll` - "string" (required) Roll string to add to the target's rolls, or "advantage"/"disadvantage".
     - `affected` - [list] (required at least one) List of rolls to affect. May be `attacks`, `saves`, or `checks`. May also be more specific for `saves` and `checks`, such as `checks.stealth` or `saves.intelligence`
     - `source` - "string" (optional) Restricts effect to rolls caused by/targeted at `source`. Current options: `caster`.
+    - `end_on_uses` - (int) (optional) Rolls that can be made until the effect ends. Defaults to unlimited if not included.
 - `slot_scale` - Indicates that the spell scales with higher slot levels
   - `slot_scale` - [list] (required)
     - Item - {dict} (required at least 1)
