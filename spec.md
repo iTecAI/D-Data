@@ -119,6 +119,7 @@
     - `end_on_uses` - (int) (optional) Attacks that can be made until the effect ends. Defaults to unlimited if not included.
 - `hit_modifier` - Indicates that attack rolls to hit the target will be modified.
   - `hit_modifier` - "string"/"roll string" (required) `advantage`, `disadvantage`, or a roll string.
+  - `hit_modifier_count` - (int) (optional) The number of hits to affect before this segment of the effect ends.
 
 ### Formatting Flags
 Some string values can contain formatting flags, as listed below.

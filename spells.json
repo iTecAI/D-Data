@@ -7220,8 +7220,38 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Guiding Bolt",
+                "types":[
+                    "spell_attack",
+                    "damage",
+                    "hit_modifier",
+                    "slot_scale"
+                ],
+                "damage":{
+                    "roll":"4d6",
+                    "type":"radiant"
+                },
+                "hit_modifier":"advantage",
+                "hit_modifier_count":1,
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d6"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
     },
     {
