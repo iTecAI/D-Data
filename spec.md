@@ -38,6 +38,11 @@
 - `hp_selection` - Indicates that the targets are selected via HP (i.e. the sleep spell)
   - `hp_roll` - "roll string" (required) The amount of HP to affect. Treated as a roll string.
   - `hp_sort` - "string" (required) Sorting of creatures to affect based on HP. Can be `ascending` or `descending`.
+- `cantrip_scaling` - Indicates that the spell will change as the player levels.
+  - `{level number}` - {dict} (required at least 1)
+    - `target` - "string" (required) Path inside the effect dict, such that damage:{roll:-} -> `damage.roll`
+    - `value` - (any) (required) Value to set the target path item to.
+- `allow_repeat` - Indicates that targets can be repeated
 
 ### Effects
 - `spell_attack` - Indicates a spell attack
@@ -86,7 +91,7 @@
   - `damage_modifier` - {dict} (required)
     - `types` - [list] (required) List of damage types to affect.
     - `operation` - "string" (required) `min`, `max`, or a roll string modifier such as `+5` or `*2`.
-    - - `source` - "string" (optional) Restricts effect to damage caused by `source`. Current options: `caster`.
+    - `source` - "string" (optional) Restricts effect to damage caused by `source`. Current options: `caster`.
 - `bonus_inflicted_damage` - Indicates that another full damage element will be added to attacks that hit the target.
   - `bonus_inflicted_damage` - {dict} (required)
     - `types` - [list]/"string" (required) List of damage types to affect or "any"
@@ -111,9 +116,12 @@
       - `roll` - "roll string" (required) Damage roll
       - `type` - "string" (required) Damage type or "heal". Can also have flags, such as `:magical` or `:adamantine`
     - `end_on_uses` - (int) (optional) Attacks that can be made until the effect ends. Defaults to unlimited if not included.
+- `hit_modifier` - Indicates that attack rolls to hit the target will be modified.
+  - `hit_modifier` - "string"/"roll string" (required) `advantage`, `disadvantage`, or a roll string.
 
 ### Formatting Flags
 Some string values can contain formatting flags, as listed below.
 
 - Roll Strings
   - `{spellcasting_ability_modifier}` - The caster's spellcasting ability modifier.
+  - `{<ability name>_mod}` - The caster's ability modifier for the specified ability.

@@ -223,7 +223,7 @@
                 ],
                 "slot_scale":[
                     {
-                        "path":"attributes.value",
+                        "path":"attributes.0.value",
                         "value":5
                     }
                 ]
@@ -4268,8 +4268,36 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Disintegrate",
+                "types":[
+                    "save",
+                    "damage",
+                    "slot_scale"
+                ],
+                "save":"dexterity",
+                "damage":{
+                    "roll":"10d6+40",
+                    "type":"force"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"3d6"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 7th level or higher, the damage increases by 3d6 for each slot level above 6th."
     },
     {
@@ -4417,7 +4445,21 @@
             "circles": ""
         },
         "targets": [],
-        "effects": [],
+        "effects": [
+            {
+                "name":"Divine Favor",
+                "types":[
+                    "attack_modifier"
+                ],
+                "attack_modifier":{
+                    "type":"damage",
+                    "damage":{
+                        "roll":"1d4",
+                        "type":"radiant"
+                    }
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -4708,10 +4750,58 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific",
+                    "allow_repeats",
+                    "cantrip_scaling"
+                ],
+                "count":1,
+                "cantrip_scaling":{
+                    "5":{
+                        "target":"count",
+                        "value":2
+                    },
+                    "11":{
+                        "target":"count",
+                        "value":3
+                    },
+                    "17":{
+                        "target":"count",
+                        "value":4
+                    }
+                }
+            }
+        ],
+        "effects": [
+            {
+                "name":"Eldritch Blast",
+                "types":[
+                    "spell_attack",
+                    "damage"
+                ],
+                "damage":{
+                    "roll":"1d10",
+                    "type":"force"
+                }
+            },
+            {
+                "name":"Agonizing Blast",
+                "types":[
+                    "spell_attack",
+                    "damage"
+                ],
+                "damage":{
+                    "roll":"1d10+{charisma_mod)",
+                    "type":"force"
+                }
+            }
+        ],
         "higher_level": ""
     },
+    
     {
         "name": "Enhance Ability",
         "slug": "enhance-ability",
@@ -4822,8 +4912,27 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":20,
+                "area_type":"square"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Entangle",
+                "types":[
+                    "save",
+                    "condition"
+                ],
+                "save":"strength",
+                "condition":"restrained"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -5085,8 +5194,27 @@
             "archetype": "Cleric: Light<br/> Warlock: Archfey",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":20,
+                "area_type":"cube"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Faerie Fire",
+                "types":[
+                    "save",
+                    "hit_modifier"
+                ],
+                "save":"dexterity",
+                "hit_modifier":"advantage"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -5161,7 +5289,28 @@
             "circles": ""
         },
         "targets": [],
-        "effects": [],
+        "effects": [
+            {
+                "name":"False Life",
+                "types":[
+                    "attribute",
+                    "slot_scale"
+                ],
+                "attributes":[
+                    {
+                        "path":"temporary_hit_points",
+                        "operation":"set",
+                        "value":"1d4+4"
+                    }
+                ],
+                "slot_scale":[
+                    {
+                        "path":"attributes.0.value",
+                        "value":"5"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st."
     },
     {
@@ -5200,8 +5349,27 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":30,
+                "area_type":"cone"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Fear",
+                "types":[
+                    "save",
+                    "condition"
+                ],
+                "save":"wisdom",
+                "condition":"frightened"
+            }
+        ],
         "higher_level": ""
     },
     {
