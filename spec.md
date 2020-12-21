@@ -5,6 +5,7 @@
 
 - `specific` - Indicates a number of specific targets
   - `count` - (int)/"string" (required) Number of targets, or "any".
+  - `count_exact` - (bool) (required) Indicates whether an exact number of targets must be selected. Defaults to false.
 - `area` - Indicates that the targets should be within an area
   - `area` - (int)/{dict} (required) Area width/diameter in feet or one of the following dictionaries.
     - If `area_type` == `rectangle`:
@@ -64,6 +65,7 @@
 - `save` - Indicates that a save must be made
   - `save` - "string" (required) Save name, such as `strength` or `dexterity`
   - `save_modifier` - "string" (optional) Add a modifier, `advantage`, or `disadvantage` to the saving throw.
+  - `save_initial` - (bool) (optional) Whether the save should be made immediately. If `false`, `save_repeat` should be included.
 - `save_repeat` - Indicates that the save should be repeated each round.
   - `save_repeat` - "string" (required) When the save should occur on the target's turn. Any of `start`, `end`, or `damage` (this may occur outside of the target's turn).
 - `cantrip_scaling` - Indicates that the spell will change as the player levels.

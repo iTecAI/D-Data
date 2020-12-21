@@ -216,7 +216,7 @@
                 ],
                 "attributes": [
                     {
-                        "path": "max_hp",
+                        "path": "hit_points.current",
                         "operation": "add",
                         "value": 5
                     }
@@ -5297,7 +5297,7 @@
                 ],
                 "attributes": [
                     {
-                        "path": "temporary_hit_points",
+                        "path": "hit_points.temporary",
                         "operation": "set",
                         "value": "1d4+4"
                     }
@@ -8881,8 +8881,26 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Levitate",
+                "types":[
+                    "save",
+                    "flavor"
+                ],
+                "save":"constitution",
+                "flavor":"One creature or object of your choice that you can see within range rises vertically, up to 20 feet, and remains suspended there for the duration. The spell can levitate a target that weighs up to 500 pounds."
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -8955,8 +8973,57 @@
             "archetype": "Druid: Mountain",
             "circles": "Mountain"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Area Of Effect",
+                "types": [
+                    "area"
+                ],
+                "area": 100,
+                "area_type": "line"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Lightning Bolt",
+                "types": [
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save": "dexterity",
+                "damage": {
+                    "roll": "8d6",
+                    "type": "lightning"
+                },
+                "slot_scale": [
+                    {
+                        "path": "damage.roll",
+                        "value": "1d6"
+                    }
+                ],
+                "fail": [
+                    {
+                        "name":"Lightning Bolt",
+                        "types": [
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage": {
+                            "roll": "8d6/2",
+                            "type": "lightning"
+                        },
+                        "slot_scale": [
+                            {
+                                "path": "damage.roll",
+                                "value": "1d6/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd."
     },
     {
@@ -9153,8 +9220,28 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Mage Armor",
+                "types":[
+                    "attribute"
+                ],
+                "attribute":{
+                    "path":"armor_class.base",
+                    "operation":"set",
+                    "value":"13+{dexterity_mod}"
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -9298,8 +9385,36 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Multiple Targets",
+                "types":[
+                    "specific",
+                    "allow_repeats",
+                    "slot_scale"
+                ],
+                "count":3,
+                "count_exact":true,
+                "slot_scale":[
+                    {
+                        "path":"count",
+                        "value":1
+                    }
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Magic Missile",
+                "types":[
+                    "damage"
+                ],
+                "damage":{
+                    "roll":"1d4+1",
+                    "type":"force"
+                }
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st."
     },
     {
@@ -9483,8 +9598,37 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area",
+                    "specific"
+                ],
+                "area":60,
+                "area_type":"sphere",
+                "count":6
+            }
+        ],
+        "effects": [
+            {
+                "name":"Mass Cure Wounds",
+                "types":[
+                    "damage",
+                    "slot_scale"
+                ],
+                "damage":{
+                    "roll":"3d8+{spellcasting_ability_modifier}",
+                    "type":"heal"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d8"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 6th level or higher, the healing increases by 1d8 for each slot level above 5th."
     },
     {
@@ -9546,8 +9690,34 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Multiple Targets",
+                "types":[
+                    "specific"
+                ],
+                "count":6
+            }
+        ],
+        "effects": [
+            {
+                "name":"Mass Healing Word",
+                "types":[
+                    "damage",
+                    "slot_scale"
+                ],
+                "damage":{
+                    "roll":"1d4+{spellcasting_ability_modifier}",
+                    "type":"heal"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d4"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 4th level or higher, the healing increases by 1d4 for each slot level above 3rd."
     },
     {
@@ -10069,8 +10239,65 @@
             "archetype": "Paladin: Ancients",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area",
+                    "hazard"
+                ],
+                "area":{
+                    "diameter":10,
+                    "height":40
+                },
+                "area_type":"cylinder",
+                "hazard_triggers":[
+                    "enters",
+                    "turn_start"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name": "Moonbeam",
+                "types": [
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save": "constitution",
+                "damage": {
+                    "roll": "2d10",
+                    "type": "radiant"
+                },
+                "slot_scale": [
+                    {
+                        "path": "damage.roll",
+                        "value": "1d10"
+                    }
+                ],
+                "fail": [
+                    {
+                        "name": "Moonbeam",
+                        "types": [
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage": {
+                            "roll": "2d10",
+                            "type": "radiant"
+                        },
+                        "slot_scale": [
+                            {
+                                "path": "damage.roll",
+                                "value": "1d10/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd."
     },
     {
@@ -10232,7 +10459,7 @@
     {
         "name": "Phantasmal Killer",
         "slug": "phantasmal-killer",
-        "desc": "You tap into the nightmares of a creature you can see within range and create an illusory manifestation of its deepest fears, visible only to that creature. The target must make a wisdom saving throw. On a failed save, the target becomes frightened for the duration. At the start of each of the target's turns before the spell ends, the target must succeed on a wisdom saving throw or take 4 d10 psychic damage. On a successful save, the spell ends.",
+        "desc": "You tap into the nightmares of a creature you can see within range and create an illusory manifestation of its deepest fears, visible only to that creature. The target must make a wisdom saving throw. On a failed save, the target becomes frightened for the duration. At the start of each of the target's turns before the spell ends, the target must succeed on a wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends.",
         "casting_time": {
             "quantity": 1,
             "type": "action"
@@ -10478,8 +10705,44 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Poison Spray",
+                "types":[
+                    "damage",
+                    "save",
+                    "cantrip_scaling"
+                ],
+                "save":"constitution",
+                "damage":{
+                    "roll":"1d12",
+                    "type":"poison"
+                },
+                "cantrip_scaling":{
+                    "5":{
+                        "target":"damage.roll",
+                        "value":"2d12"
+                    },
+                    "11":{
+                        "target":"damage.roll",
+                        "value":"3d12"
+                    },
+                    "17":{
+                        "target":"damage.roll",
+                        "value":"4d12"
+                    }
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -10553,8 +10816,38 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Power Word Kill",
+                "types":[
+                    "prerequisites",
+                    "attribute"
+                ],
+                "prerequisites":{
+                    "hit_points.current":{
+                        "operator":"<=",
+                        "value":100
+                    }
+                },
+                "prerequisites_match":"all",
+                "attributes":[
+                    {
+                        "path":"hit_points.current",
+                        "operation":"set",
+                        "value":0
+                    }
+                ]
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -10587,8 +10880,37 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Power Word Stun",
+                "types":[
+                    "prerequisites",
+                    "condition",
+                    "save",
+                    "save_repeat"
+                ],
+                "prerequisites":{
+                    "hit_points.current":{
+                        "operator":"<=",
+                        "value":150
+                    }
+                },
+                "prerequisites_match":"all",
+                "condition":"stunned",
+                "save":"constitution",
+                "save_initial":false,
+                "save_repeat":"end"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -10618,8 +10940,46 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Multiple Targets",
+                "types":[
+                    "specific",
+                    "prerequisites"
+                ],
+                "count":6,
+                "count_exact":false,
+                "prerequisites":{
+                    "creature_type":{
+                        "operator":"!=",
+                        "value":[
+                            "undead",
+                            "construct"
+                        ]
+                    }
+                },
+                "prerequisites_match":"all"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Prayer of Healing",
+                "types":[
+                    "damage",
+                    "slot_scale"
+                ],
+                "damage":{
+                    "roll":"2d8+{spellcasting_ability_modifier}",
+                    "type":"heal"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d8"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d8 for each slot level above 2nd."
     },
     {
