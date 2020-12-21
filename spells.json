@@ -68,14 +68,14 @@
                         }
                     }
                 ],
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "per_level":"1d4"
+                        "path": "damage.roll",
+                        "per_level": "1d4"
                     },
                     {
-                        "path":"damage.recurring.roll",
-                        "per_level":"1d4"
+                        "path": "damage.recurring.roll",
+                        "per_level": "1d4"
                     }
                 ]
             }
@@ -221,10 +221,10 @@
                         "value": 5
                     }
                 ],
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"attributes.0.value",
-                        "value":5
+                        "path": "attributes.0.value",
+                        "value": 5
                     }
                 ]
             },
@@ -235,13 +235,13 @@
                     "required"
                 ],
                 "damage": {
-                    "roll": "-5",
+                    "roll": "5",
                     "type": "heal"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"-5"
+                        "path": "damage.roll",
+                        "value": "5"
                     }
                 ]
             }
@@ -380,10 +380,10 @@
                     }
                 },
                 "prerequisites_match": "all",
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"count",
-                        "value":1
+                        "path": "count",
+                        "value": 1
                     }
                 ]
             }
@@ -1009,10 +1009,10 @@
                     "specific"
                 ],
                 "count": 3,
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"count",
-                        "value":1
+                        "path": "count",
+                        "value": 1
                     }
                 ]
             }
@@ -1081,10 +1081,10 @@
                     "slot_scale"
                 ],
                 "count": 1,
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"count",
-                        "value":1
+                        "path": "count",
+                        "value": 1
                     }
                 ]
             }
@@ -1100,7 +1100,7 @@
                 ],
                 "save": "charisma",
                 "flavor": "The target is banished.",
-                "condition":"incapacitated"
+                "condition": "incapacitated"
             }
         ],
         "higher_level": "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th."
@@ -1142,24 +1142,24 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Barkskin",
-                "types":[
+                "name": "Barkskin",
+                "types": [
                     "attribute"
                 ],
-                "attributes":[
+                "attributes": [
                     {
-                        "path":"armor_class.min",
-                        "operation":"set",
-                        "value":16
+                        "path": "armor_class.min",
+                        "operation": "set",
+                        "value": 16
                     }
                 ]
             }
@@ -1201,32 +1201,32 @@
         },
         "targets": [
             {
-                "name":"Choice of Targets",
-                "types":[
+                "name": "Choice of Targets",
+                "types": [
                     "specific"
                 ],
-                "count":"any"
+                "count": "any"
             }
         ],
         "effects": [
             {
-                "name":"Beacon of Hope",
-                "types":[
+                "name": "Beacon of Hope",
+                "types": [
                     "roll_modifier",
                     "damage_modifier"
                 ],
-                "roll_modifier":{
-                    "roll":"advantage",
-                    "affected":[
+                "roll_modifier": {
+                    "roll": "advantage",
+                    "affected": [
                         "saves.wisdom",
                         "saves.death"
                     ]
                 },
-                "damage_modifier":{
-                    "types":[
+                "damage_modifier": {
+                    "types": [
                         "heal"
                     ],
-                    "operation":"max"
+                    "operation": "max"
                 }
             }
         ],
@@ -1268,152 +1268,151 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Debuff Ability Score - Strength",
-                "types":[
+                "name": "Debuff Ability Score - Strength",
+                "types": [
                     "save",
                     "roll_modifier",
                     "single_option"
                 ],
-                "save":"wisdom",
-                "roll_modifier":{
-                    "roll":"disadvantage",
-                    "affected":[
+                "save": "wisdom",
+                "roll_modifier": {
+                    "roll": "disadvantage",
+                    "affected": [
                         "saves.strength",
                         "checks.strength"
                     ]
                 }
             },
             {
-                "name":"Debuff Ability Score - Dexterity",
-                "types":[
+                "name": "Debuff Ability Score - Dexterity",
+                "types": [
                     "save",
                     "roll_modifier",
                     "single_option"
                 ],
-                "save":"wisdom",
-                "roll_modifier":{
-                    "roll":"disadvantage",
-                    "affected":[
+                "save": "wisdom",
+                "roll_modifier": {
+                    "roll": "disadvantage",
+                    "affected": [
                         "saves.dexterity",
                         "checks.dexterity"
                     ]
                 }
             },
             {
-                "name":"Debuff Ability Score - Constitution",
-                "types":[
+                "name": "Debuff Ability Score - Constitution",
+                "types": [
                     "save",
                     "roll_modifier",
                     "single_option"
                 ],
-                "save":"wisdom",
-                "roll_modifier":{
-                    "roll":"disadvantage",
-                    "affected":[
+                "save": "wisdom",
+                "roll_modifier": {
+                    "roll": "disadvantage",
+                    "affected": [
                         "saves.constitution",
                         "checks.constitution"
                     ]
                 }
             },
             {
-                "name":"Debuff Ability Score - Intelligence",
-                "types":[
+                "name": "Debuff Ability Score - Intelligence",
+                "types": [
                     "save",
                     "roll_modifier",
                     "single_option"
                 ],
-                "save":"wisdom",
-                "roll_modifier":{
-                    "roll":"disadvantage",
-                    "affected":[
+                "save": "wisdom",
+                "roll_modifier": {
+                    "roll": "disadvantage",
+                    "affected": [
                         "saves.intelligence",
                         "checks.intelligence"
                     ]
                 }
             },
             {
-                "name":"Debuff Ability Score - Wisdom",
-                "types":[
+                "name": "Debuff Ability Score - Wisdom",
+                "types": [
                     "save",
                     "roll_modifier",
                     "single_option"
                 ],
-                "save":"wisdom",
-                "roll_modifier":{
-                    "roll":"disadvantage",
-                    "affected":[
+                "save": "wisdom",
+                "roll_modifier": {
+                    "roll": "disadvantage",
+                    "affected": [
                         "saves.wisdom",
                         "checks.wisdom"
                     ]
                 }
             },
             {
-                "name":"Debuff Ability Score - Charisma",
-                "types":[
+                "name": "Debuff Ability Score - Charisma",
+                "types": [
                     "save",
                     "roll_modifier",
                     "single_option"
                 ],
-                "save":"wisdom",
-                "roll_modifier":{
-                    "roll":"disadvantage",
-                    "affected":[
+                "save": "wisdom",
+                "roll_modifier": {
+                    "roll": "disadvantage",
+                    "affected": [
                         "saves.charisma",
                         "checks.charisma"
                     ]
                 }
             },
             {
-                "name":"Debuff Attack Rolls",
-                "types":[
+                "name": "Debuff Attack Rolls",
+                "types": [
                     "save",
                     "roll_modifier",
                     "single_option"
                 ],
-                "save":"wisdom",
-                "roll_modifier":{
-                    "roll":"disadvantage",
-                    "affected":[
+                "save": "wisdom",
+                "roll_modifier": {
+                    "roll": "disadvantage",
+                    "affected": [
                         "attacks"
                     ],
-                    "source":"caster"
+                    "source": "caster"
                 }
             },
             {
-                "name":"Wasted Action",
-                "types":[
+                "name": "Wasted Action",
+                "types": [
                     "save",
                     "flavor",
                     "single_option"
                 ],
-                "save":"wisdom",
-                "flavor":"While Cursed, the target must make a Wisdom saving throw at the start of each of its turns. If it fails, it wastes its action that turn doing nothing."
+                "save": "wisdom",
+                "flavor": "While Cursed, the target must make a Wisdom saving throw at the start of each of its turns. If it fails, it wastes its action that turn doing nothing."
             },
             {
-                "name":"Increased Damage",
-                "types":[
+                "name": "Increased Damage",
+                "types": [
                     "save",
                     "bonus_inflicted_damage",
                     "single_option"
                 ],
-                "save":"wisdom",
-                "bonus_inflicted_damage":{
-                    "types":"any",
-                    "roll":"1d8",
-                    "damage_type":"necrotic",
-                    "source":"caster"
+                "save": "wisdom",
+                "bonus_inflicted_damage": {
+                    "types": "any",
+                    "roll": "1d8",
+                    "damage_type": "necrotic",
+                    "source": "caster"
                 }
             }
-            
         ],
         "higher_level": "If you cast this spell using a spell slot of 4th level or higher, the duration is concentration, up to 10 minutes. If you use a spell slot of 5th level or higher, the duration is 8 hours. If you use a spell slot of 7th level or higher, the duration is 24 hours. If you use a 9th level spell slot, the spell lasts until it is dispelled. Using a spell slot of 5th level or higher grants a duration that doesn't require concentration."
     },
@@ -1453,14 +1452,14 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area",
                     "hazard"
                 ],
-                "area":20,
-                "area_type":"square",
-                "hazard_triggers":[
+                "area": 20,
+                "area_type": "square",
+                "hazard_triggers": [
                     "enters",
                     "turn_start"
                 ]
@@ -1468,52 +1467,52 @@
         ],
         "effects": [
             {
-                "name":"Black Tentacles - Restrain",
-                "types":[
+                "name": "Black Tentacles - Restrain",
+                "types": [
                     "save",
                     "damage",
                     "condition",
                     "required",
                     "prerequisites"
                 ],
-                "save":"dexterity",
-                "damage":{
-                    "roll":"3d6",
-                    "type":"bludgeoning:magical"
+                "save": "dexterity",
+                "damage": {
+                    "roll": "3d6",
+                    "type": "bludgeoning:magical"
                 },
-                "condition":"restrained",
-                "prerequisites":{
-                    "condition:restrained":{
-                        "operator":"==",
-                        "value":false
+                "condition": "restrained",
+                "prerequisites": {
+                    "condition:restrained": {
+                        "operator": "==",
+                        "value": false
                     },
-                    "affected:Black Tentacles - Restrain":{
-                        "operator":"==",
-                        "value":false
+                    "affected:Black Tentacles - Restrain": {
+                        "operator": "==",
+                        "value": false
                     }
                 },
                 "prerequisites_match": "all"
             },
             {
-                "name":"Repeating Damage",
-                "types":[
+                "name": "Repeating Damage",
+                "types": [
                     "prerequisites",
                     "damage"
                 ],
-                "prerequisites":{
-                    "condition:restrained":{
-                        "operator":"==",
-                        "value":true
+                "prerequisites": {
+                    "condition:restrained": {
+                        "operator": "==",
+                        "value": true
                     },
-                    "affected:Black Tentacles - Restrain":{
-                        "operator":"==",
-                        "value":true
+                    "affected:Black Tentacles - Restrain": {
+                        "operator": "==",
+                        "value": true
                     }
                 },
                 "prerequisites_match": "all",
-                "damage":{
-                    "roll":"3d6",
-                    "type":"bludgeoning:magical"
+                "damage": {
+                    "roll": "3d6",
+                    "type": "bludgeoning:magical"
                 }
             }
         ],
@@ -1553,35 +1552,35 @@
         },
         "targets": [
             {
-                "name":"Wall",
-                "types":[
+                "name": "Wall",
+                "types": [
                     "area",
                     "hazard"
                 ],
-                "area_type":"rectangle",
-                "area":{
-                    "length":100,
-                    "width":5,
-                    "height":20
+                "area_type": "rectangle",
+                "area": {
+                    "length": 100,
+                    "width": 5,
+                    "height": 20
                 },
-                "hazard_triggers":[
+                "hazard_triggers": [
                     "enters",
                     "turn_start"
                 ]
             },
             {
-                "name":"Ringed Wall",
-                "types":[
+                "name": "Ringed Wall",
+                "types": [
                     "area",
                     "hazard"
                 ],
-                "area_type":"ring",
-                "area":{
-                    "diameter":60,
-                    "thickness":5,
-                    "height":20
+                "area_type": "ring",
+                "area": {
+                    "diameter": 60,
+                    "thickness": 5,
+                    "height": 20
                 },
-                "hazard_triggers":[
+                "hazard_triggers": [
                     "enters",
                     "turn_start"
                 ]
@@ -1589,15 +1588,15 @@
         ],
         "effects": [
             {
-                "name":"Blade Barrier",
-                "types":[
+                "name": "Blade Barrier",
+                "types": [
                     "save",
                     "damage"
                 ],
-                "save":"dexterity",
-                "damage":{
-                    "roll":"6d10",
-                    "type":"slashing:magical"
+                "save": "dexterity",
+                "damage": {
+                    "roll": "6d10",
+                    "type": "slashing:magical"
                 }
             }
         ],
@@ -1639,22 +1638,22 @@
         },
         "targets": [
             {
-                "name":"Multiple Targets",
-                "types":[
+                "name": "Multiple Targets",
+                "types": [
                     "specific"
                 ],
-                "count":3
+                "count": 3
             }
         ],
         "effects": [
             {
-                "name":"Bless",
-                "types":[
+                "name": "Bless",
+                "types": [
                     "roll_modifier"
                 ],
-                "roll_modifier":{
-                    "roll":"d4",
-                    "affected":[
+                "roll_modifier": {
+                    "roll": "d4",
+                    "affected": [
                         "attacks",
                         "saves"
                     ]
@@ -1696,16 +1695,16 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific",
                     "prerequisites"
                 ],
-                "count":1,
-                "prerequisites":{
-                    "creature_type":{
-                        "operator":"!=",
-                        "value":[
+                "count": 1,
+                "prerequisites": {
+                    "creature_type": {
+                        "operator": "!=",
+                        "value": [
                             "undead",
                             "construct"
                         ]
@@ -1716,8 +1715,8 @@
         ],
         "effects": [
             {
-                "name":"Regular Blight",
-                "types":[
+                "name": "Regular Blight",
+                "types": [
                     "save",
                     "damage",
                     "prerequisites",
@@ -1725,109 +1724,109 @@
                     "required",
                     "failure_effect"
                 ],
-                "save":"constitution",
-                "damage":{
-                    "roll":"8d8",
-                    "type":"necrotic"
+                "save": "constitution",
+                "damage": {
+                    "roll": "8d8",
+                    "type": "necrotic"
                 },
-                "prerequisites":{
-                    "creature_type":{
-                        "operator":"!=",
-                        "value":"plant"
+                "prerequisites": {
+                    "creature_type": {
+                        "operator": "!=",
+                        "value": "plant"
                     }
                 },
                 "prerequisites_match": "all",
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"1d8"
+                        "path": "damage.roll",
+                        "value": "1d8"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Regular Blight",
-                        "types":[
+                        "name": "Regular Blight",
+                        "types": [
                             "save",
                             "damage",
                             "prerequisites",
                             "slot_scale",
                             "required"
                         ],
-                        "save":"constitution",
-                        "damage":{
-                            "roll":"8d8/2",
-                            "type":"necrotic"
+                        "save": "constitution",
+                        "damage": {
+                            "roll": "8d8/2",
+                            "type": "necrotic"
                         },
-                        "prerequisites":{
-                            "creature_type":{
-                                "operator":"!=",
-                                "value":"plant"
+                        "prerequisites": {
+                            "creature_type": {
+                                "operator": "!=",
+                                "value": "plant"
                             }
                         },
                         "prerequisites_match": "all",
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.roll",
-                                "value":"1d8/2"
+                                "path": "damage.roll",
+                                "value": "1d8/2"
                             }
                         ]
                     }
                 ]
             },
             {
-                "name":"Plant Blight",
-                "types":[
+                "name": "Plant Blight",
+                "types": [
                     "save",
                     "damage",
                     "prerequisites",
                     "slot_scale",
                     "required"
                 ],
-                "save":"constitution",
-                "save_modifier":"disadvantage",
-                "damage":{
-                    "roll":"64",
-                    "type":"necrotic"
+                "save": "constitution",
+                "save_modifier": "disadvantage",
+                "damage": {
+                    "roll": "64",
+                    "type": "necrotic"
                 },
-                "prerequisites":{
-                    "creature_type":{
-                        "operator":"==",
-                        "value":"plant"
+                "prerequisites": {
+                    "creature_type": {
+                        "operator": "==",
+                        "value": "plant"
                     }
                 },
                 "prerequisites_match": "all",
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"8"
+                        "path": "damage.roll",
+                        "value": "8"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Regular Blight",
-                        "types":[
+                        "name": "Regular Blight",
+                        "types": [
                             "save",
                             "damage",
                             "prerequisites",
                             "slot_scale",
                             "required"
                         ],
-                        "save":"constitution",
-                        "damage":{
-                            "roll":"32",
-                            "type":"necrotic"
+                        "save": "constitution",
+                        "damage": {
+                            "roll": "32",
+                            "type": "necrotic"
                         },
-                        "prerequisites":{
-                            "creature_type":{
-                                "operator":"!=",
-                                "value":"plant"
+                        "prerequisites": {
+                            "creature_type": {
+                                "operator": "!=",
+                                "value": "plant"
                             }
                         },
                         "prerequisites_match": "all",
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.roll",
-                                "value":"4"
+                                "path": "damage.roll",
+                                "value": "4"
                             }
                         ]
                     }
@@ -1879,38 +1878,38 @@
                     "slot_scale"
                 ],
                 "count": 1,
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"count",
-                        "value":1
+                        "path": "count",
+                        "value": 1
                     }
                 ]
             }
         ],
         "effects": [
             {
-                "name":"Blindness",
-                "types":[
+                "name": "Blindness",
+                "types": [
                     "save",
                     "condition",
                     "single_option",
                     "save_repeat"
                 ],
-                "save":"constitution",
-                "condition":"blinded",
-                "save_repeat":"end"
+                "save": "constitution",
+                "condition": "blinded",
+                "save_repeat": "end"
             },
             {
-                "name":"Deafness",
-                "types":[
+                "name": "Deafness",
+                "types": [
                     "save",
                     "condition",
                     "single_option",
                     "save_repeat"
                 ],
-                "save":"constitution",
-                "condition":"deafened",
-                "save_repeat":"end"
+                "save": "constitution",
+                "condition": "deafened",
+                "save_repeat": "end"
             }
         ],
         "higher_level": "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd."
@@ -2025,17 +2024,17 @@
         "targets": [],
         "effects": [
             {
-                "name":"Branding Smite",
-                "types":[
+                "name": "Branding Smite",
+                "types": [
                     "attack_modifier"
                 ],
-                "attack_modifier":{
-                    "type":"damage",
-                    "damage":{
-                        "roll":"2d6",
-                        "type":"radiant"
+                "attack_modifier": {
+                    "type": "damage",
+                    "damage": {
+                        "roll": "2d6",
+                        "type": "radiant"
                     },
-                    "end_on_uses":1
+                    "end_on_uses": 1
                 }
             }
         ],
@@ -2074,48 +2073,48 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area"
                 ],
-                "area":15,
-                "type":"cone"
+                "area": 15,
+                "type": "cone"
             }
         ],
         "effects": [
             {
-                "name":"Burning Hands",
-                "types":[
+                "name": "Burning Hands",
+                "types": [
                     "damage",
                     "save",
                     "slot_scale",
                     "failure_effect"
                 ],
-                "save":"dexterity",
-                "damage":{
-                    "roll":"3d6",
-                    "type":"fire"
+                "save": "dexterity",
+                "damage": {
+                    "roll": "3d6",
+                    "type": "fire"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"1d6"
+                        "path": "damage.roll",
+                        "value": "1d6"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Burning Hands",
-                        "types":[
+                        "name": "Burning Hands",
+                        "types": [
                             "damage"
                         ],
-                        "damage":{
-                            "roll":"3d6/2",
-                            "type":"fire"
+                        "damage": {
+                            "roll": "3d6/2",
+                            "type": "fire"
                         },
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.roll",
-                                "value":"1d6"
+                                "path": "damage.roll",
+                                "value": "1d6"
                             }
                         ]
                     }
@@ -2231,42 +2230,42 @@
         },
         "targets": [
             {
-                "name":"Multiple Targets",
-                "types":[
+                "name": "Multiple Targets",
+                "types": [
                     "specific",
                     "slot_scale"
                 ],
-                "count":4,
-                "slot_scale":[
+                "count": 4,
+                "slot_scale": [
                     {
-                        "path":"count",
-                        "value":1
+                        "path": "count",
+                        "value": 1
                     }
                 ]
             }
         ],
         "effects": [
             {
-                "name":"Chain Lightning",
-                "types":[
+                "name": "Chain Lightning",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect"
                 ],
-                "save":"dexterity",
-                "damage":{
-                    "roll":"10d8",
-                    "type":"lightning"
+                "save": "dexterity",
+                "damage": {
+                    "roll": "10d8",
+                    "type": "lightning"
                 },
-                "fail":[
+                "fail": [
                     {
-                        "name":"Chain Lightning",
-                        "types":[
+                        "name": "Chain Lightning",
+                        "types": [
                             "damage"
                         ],
-                        "damage":{
-                            "roll":"10d8/2",
-                            "type":"lightning"
+                        "damage": {
+                            "roll": "10d8/2",
+                            "type": "lightning"
                         }
                     }
                 ]
@@ -2313,29 +2312,29 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific",
                     "slot_scale"
                 ],
-                "count":1,
-                "slot_scale":[
+                "count": 1,
+                "slot_scale": [
                     {
-                        "path":"count",
-                        "value":1
+                        "path": "count",
+                        "value": 1
                     }
                 ]
             }
         ],
         "effects": [
             {
-                "name":"Charm Person",
-                "types":[
+                "name": "Charm Person",
+                "types": [
                     "save",
                     "condition"
                 ],
-                "save":"wisdom",
-                "condition":"charmed"
+                "save": "wisdom",
+                "condition": "charmed"
             }
         ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them."
@@ -2376,37 +2375,37 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Chill Touch",
-                "types":[
+                "name": "Chill Touch",
+                "types": [
                     "spell_attack",
                     "damage",
                     "cantrip_scaling"
                 ],
-                "damage":{
-                    "roll":"1d8",
-                    "type":"necrotic"
+                "damage": {
+                    "roll": "1d8",
+                    "type": "necrotic"
                 },
-                "cantrip_scaling":{
-                    "5":{
-                        "target":"damage.roll",
-                        "value":"2d8"
+                "cantrip_scaling": {
+                    "5": {
+                        "target": "damage.roll",
+                        "value": "2d8"
                     },
-                    "11":{
-                        "target":"damage.roll",
-                        "value":"3d8"
+                    "11": {
+                        "target": "damage.roll",
+                        "value": "3d8"
                     },
-                    "17":{
-                        "target":"damage.roll",
-                        "value":"4d8"
+                    "17": {
+                        "target": "damage.roll",
+                        "value": "4d8"
                     }
                 }
             }
@@ -2446,49 +2445,49 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area"
                 ],
-                "area":120,
-                "area_type":"sphere"
+                "area": 120,
+                "area_type": "sphere"
             }
         ],
         "effects": [
             {
-                "name":"Circle of Death",
-                "types":[
+                "name": "Circle of Death",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect",
                     "slot_scale"
                 ],
-                "save":"constitution",
-                "damage":{
-                    "roll":"8d6",
-                    "type":"necrotic"
+                "save": "constitution",
+                "damage": {
+                    "roll": "8d6",
+                    "type": "necrotic"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"2d6"
+                        "path": "damage.roll",
+                        "value": "2d6"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Circle of Death",
-                        "types":[
+                        "name": "Circle of Death",
+                        "types": [
                             "damage",
                             "slot_scale"
                         ],
-                        "damage":{
-                            "roll":"8d6/2",
-                            "type":"necrotic"
+                        "damage": {
+                            "roll": "8d6/2",
+                            "type": "necrotic"
                         },
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.roll",
-                                "value":"2d6/2"
+                                "path": "damage.roll",
+                                "value": "2d6/2"
                             }
                         ]
                     }
@@ -2607,14 +2606,14 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area",
                     "hazard"
                 ],
-                "area":40,
-                "area_type":"sphere",
-                "hazard_triggers":[
+                "area": 40,
+                "area_type": "sphere",
+                "hazard_triggers": [
                     "enters",
                     "turn_start"
                 ]
@@ -2622,39 +2621,39 @@
         ],
         "effects": [
             {
-                "name":"Cloudkill",
-                "types":[
+                "name": "Cloudkill",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect",
                     "slot_scale"
                 ],
-                "save":"constitution",
-                "damage":{
-                    "roll":"5d8",
-                    "type":"poison"
+                "save": "constitution",
+                "damage": {
+                    "roll": "5d8",
+                    "type": "poison"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"1d8"
+                        "path": "damage.roll",
+                        "value": "1d8"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Cloudkill",
-                        "types":[
+                        "name": "Cloudkill",
+                        "types": [
                             "damage",
                             "slot_scale"
                         ],
-                        "damage":{
-                            "roll":"5d8/2",
-                            "type":"necrotic"
+                        "damage": {
+                            "roll": "5d8/2",
+                            "type": "necrotic"
                         },
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.roll",
-                                "value":"1d8/2"
+                                "path": "damage.roll",
+                                "value": "1d8/2"
                             }
                         ]
                     }
@@ -2699,44 +2698,45 @@
         },
         "targets": [
             {
-                "name":"Multiple Targets",
-                "types":[
+                "name": "Multiple Targets",
+                "types": [
                     "area",
                     "prerequisites",
                     "hp_selection",
                     "slot_scale"
                 ],
-                "area":15,
-                "area_type":"cone",
-                "prerequisites":{
-                    "condition:unconscious":{
-                        "operator":"==",
-                        "value":false
+                "area": 15,
+                "area_type": "cone",
+                "prerequisites": {
+                    "condition:unconscious": {
+                        "operator": "==",
+                        "value": false
                     },
-                    "condition:blinded":{
-                        "operator":"==",
-                        "value":false
+                    "condition:blinded": {
+                        "operator": "==",
+                        "value": false
                     }
                 },
-                "hp_roll":"6d10",
-                "hp_sort":"ascending",
-                "slot_scale":[
+                "prerequisites_match": "all",
+                "hp_roll": "6d10",
+                "hp_sort": "ascending",
+                "slot_scale": [
                     {
-                        "path":"hp_roll",
-                        "value":"2d10"
+                        "path": "hp_roll",
+                        "value": "2d10"
                     }
                 ]
             }
         ],
         "effects": [
             {
-                "name":"Color Spray",
-                "types":[
+                "name": "Color Spray",
+                "types": [
                     "save",
                     "condition"
                 ],
-                "save":"constitution",
-                "condition":"blinded"
+                "save": "constitution",
+                "condition": "blinded"
             }
         ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, roll an additional 2d10 for each slot level above 1st."
@@ -2962,49 +2962,49 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area"
                 ],
-                "area":60,
-                "area_type":"cone"
+                "area": 60,
+                "area_type": "cone"
             }
         ],
         "effects": [
             {
-                "name":"Cone of Cold",
-                "types":[
+                "name": "Cone of Cold",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect",
                     "slot_scale"
                 ],
-                "save":"constitution",
-                "damage":{
-                    "roll":"8d8",
-                    "type":"cold"
+                "save": "constitution",
+                "damage": {
+                    "roll": "8d8",
+                    "type": "cold"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"1d8"
+                        "path": "damage.roll",
+                        "value": "1d8"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Cone of Cold",
-                        "types":[
+                        "name": "Cone of Cold",
+                        "types": [
                             "damage",
                             "slot_scale"
                         ],
-                        "damage":{
-                            "roll":"8d8/2",
-                            "type":"cold"
+                        "damage": {
+                            "roll": "8d8/2",
+                            "type": "cold"
                         },
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.roll",
-                                "value":"1d8/2"
+                                "path": "damage.roll",
+                                "value": "1d8/2"
                             }
                         ]
                     }
@@ -3705,28 +3705,28 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Cure Wounds",
-                "types":[
+                "name": "Cure Wounds",
+                "types": [
                     "damage",
                     "slot_scale"
                 ],
-                "damage":{
-                    "roll":"1d8+{spellcasting_ability_modifier}",
-                    "type":"heal"
+                "damage": {
+                    "roll": "1d8+{spellcasting_ability_modifier}",
+                    "type": "heal"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"1d8"
+                        "path": "damage.roll",
+                        "value": "1d8"
                     }
                 ]
             }
@@ -4270,30 +4270,30 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Disintegrate",
-                "types":[
+                "name": "Disintegrate",
+                "types": [
                     "save",
                     "damage",
                     "slot_scale"
                 ],
-                "save":"dexterity",
-                "damage":{
-                    "roll":"10d6+40",
-                    "type":"force"
+                "save": "dexterity",
+                "damage": {
+                    "roll": "10d6+40",
+                    "type": "force"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"3d6"
+                        "path": "damage.roll",
+                        "value": "3d6"
                     }
                 ]
             }
@@ -4447,15 +4447,15 @@
         "targets": [],
         "effects": [
             {
-                "name":"Divine Favor",
-                "types":[
+                "name": "Divine Favor",
+                "types": [
                     "attack_modifier"
                 ],
-                "attack_modifier":{
-                    "type":"damage",
-                    "damage":{
-                        "roll":"1d4",
-                        "type":"radiant"
+                "attack_modifier": {
+                    "type": "damage",
+                    "damage": {
+                        "roll": "1d4",
+                        "type": "radiant"
                     }
                 }
             }
@@ -4752,56 +4752,55 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific",
                     "allow_repeats",
                     "cantrip_scaling"
                 ],
-                "count":1,
-                "cantrip_scaling":{
-                    "5":{
-                        "target":"count",
-                        "value":2
+                "count": 1,
+                "cantrip_scaling": {
+                    "5": {
+                        "target": "count",
+                        "value": 2
                     },
-                    "11":{
-                        "target":"count",
-                        "value":3
+                    "11": {
+                        "target": "count",
+                        "value": 3
                     },
-                    "17":{
-                        "target":"count",
-                        "value":4
+                    "17": {
+                        "target": "count",
+                        "value": 4
                     }
                 }
             }
         ],
         "effects": [
             {
-                "name":"Eldritch Blast",
-                "types":[
+                "name": "Eldritch Blast",
+                "types": [
                     "spell_attack",
                     "damage"
                 ],
-                "damage":{
-                    "roll":"1d10",
-                    "type":"force"
+                "damage": {
+                    "roll": "1d10",
+                    "type": "force"
                 }
             },
             {
-                "name":"Agonizing Blast",
-                "types":[
+                "name": "Agonizing Blast",
+                "types": [
                     "spell_attack",
                     "damage"
                 ],
-                "damage":{
-                    "roll":"1d10+{charisma_mod)",
-                    "type":"force"
+                "damage": {
+                    "roll": "1d10+{charisma_mod)",
+                    "type": "force"
                 }
             }
         ],
         "higher_level": ""
     },
-    
     {
         "name": "Enhance Ability",
         "slug": "enhance-ability",
@@ -4914,23 +4913,23 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area"
                 ],
-                "area":20,
-                "area_type":"square"
+                "area": 20,
+                "area_type": "square"
             }
         ],
         "effects": [
             {
-                "name":"Entangle",
-                "types":[
+                "name": "Entangle",
+                "types": [
                     "save",
                     "condition"
                 ],
-                "save":"strength",
-                "condition":"restrained"
+                "save": "strength",
+                "condition": "restrained"
             }
         ],
         "higher_level": ""
@@ -5196,23 +5195,23 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area"
                 ],
-                "area":20,
-                "area_type":"cube"
+                "area": 20,
+                "area_type": "cube"
             }
         ],
         "effects": [
             {
-                "name":"Faerie Fire",
-                "types":[
+                "name": "Faerie Fire",
+                "types": [
                     "save",
                     "hit_modifier"
                 ],
-                "save":"dexterity",
-                "hit_modifier":"advantage"
+                "save": "dexterity",
+                "hit_modifier": "advantage"
             }
         ],
         "higher_level": ""
@@ -5291,22 +5290,22 @@
         "targets": [],
         "effects": [
             {
-                "name":"False Life",
-                "types":[
+                "name": "False Life",
+                "types": [
                     "attribute",
                     "slot_scale"
                 ],
-                "attributes":[
+                "attributes": [
                     {
-                        "path":"temporary_hit_points",
-                        "operation":"set",
-                        "value":"1d4+4"
+                        "path": "temporary_hit_points",
+                        "operation": "set",
+                        "value": "1d4+4"
                     }
                 ],
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"attributes.0.value",
-                        "value":"5"
+                        "path": "attributes.0.value",
+                        "value": "5"
                     }
                 ]
             }
@@ -5351,23 +5350,23 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area"
                 ],
-                "area":30,
-                "area_type":"cone"
+                "area": 30,
+                "area_type": "cone"
             }
         ],
         "effects": [
             {
-                "name":"Fear",
-                "types":[
+                "name": "Fear",
+                "types": [
                     "save",
                     "condition"
                 ],
-                "save":"wisdom",
-                "condition":"frightened"
+                "save": "wisdom",
+                "condition": "frightened"
             }
         ],
         "higher_level": ""
@@ -5616,35 +5615,35 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Finger of Death",
-                "types":[
+                "name": "Finger of Death",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect"
                 ],
-                "save":"constitution",
-                "damage":{
-                    "roll":"7d8+30",
-                    "type":"necrotic"
+                "save": "constitution",
+                "damage": {
+                    "roll": "7d8+30",
+                    "type": "necrotic"
                 },
-                "failure_effect":[
+                "fail": [
                     {
-                        "name":"Finger of Death",
-                        "types":[
+                        "name": "Finger of Death",
+                        "types": [
                             "damage"
                         ],
-                        "damage":{
-                            "roll":"(7d8+30)/2",
-                            "type":"necrotic"
+                        "damage": {
+                            "roll": "(7d8+30)/2",
+                            "type": "necrotic"
                         }
                     }
                 ]
@@ -5703,18 +5702,18 @@
                     "roll": "1d10",
                     "type": "fire"
                 },
-                "cantrip_scaling":{
-                    "5":{
-                        "target":"damage.roll",
-                        "value":"2d10"
+                "cantrip_scaling": {
+                    "5": {
+                        "target": "damage.roll",
+                        "value": "2d10"
                     },
-                    "11":{
-                        "target":"damage.roll",
-                        "value":"3d10"
+                    "11": {
+                        "target": "damage.roll",
+                        "value": "3d10"
                     },
-                    "17":{
-                        "target":"damage.roll",
-                        "value":"4d10"
+                    "17": {
+                        "target": "damage.roll",
+                        "value": "4d10"
                     }
                 }
             }
@@ -5827,49 +5826,49 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area"
                 ],
-                "area":40,
-                "area_type":"sphere"
+                "area": 40,
+                "area_type": "sphere"
             }
         ],
         "effects": [
             {
-                "name":"Fireball",
-                "types":[
+                "name": "Fireball",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect",
                     "slot_scale"
                 ],
-                "save":"dexterity",
-                "damage":{
-                    "roll":"8d6",
-                    "type":"fire"
+                "save": "dexterity",
+                "damage": {
+                    "roll": "8d6",
+                    "type": "fire"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"1d6"
+                        "path": "damage.roll",
+                        "value": "1d6"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Fireball",
-                        "types":[
+                        "name": "Fireball",
+                        "types": [
                             "damage",
                             "slot_scale"
                         ],
-                        "damage":{
-                            "roll":"8d6/2",
-                            "type":"fire"
+                        "damage": {
+                            "roll": "8d6/2",
+                            "type": "fire"
                         },
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.roll",
-                                "value":"1d6/2"
+                                "path": "damage.roll",
+                                "value": "1d6/2"
                             }
                         ]
                     }
@@ -5948,112 +5947,112 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area"
                 ],
-                "area":20,
-                "area_type":"circle"
+                "area": 20,
+                "area_type": "circle"
             }
         ],
         "effects": [
             {
-                "name":"Flame Strike - Fire Scaling",
-                "types":[
+                "name": "Flame Strike - Fire Scaling",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect",
                     "slot_scale"
                 ],
-                "save":"dexterity",
-                "damage":[
+                "save": "dexterity",
+                "damage": [
                     {
-                        "roll":"4d6",
-                        "type":"fire"
+                        "roll": "4d6",
+                        "type": "fire"
                     },
                     {
-                        "roll":"4d6",
-                        "type":"radiant"
+                        "roll": "4d6",
+                        "type": "radiant"
                     }
                 ],
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.0.roll",
-                        "value":"1d6"
+                        "path": "damage.0.roll",
+                        "value": "1d6"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Flame Strike - Fire Scaling",
-                        "types":[
+                        "name": "Flame Strike - Fire Scaling",
+                        "types": [
                             "damage",
                             "slot_scale"
                         ],
-                        "damage":[
+                        "damage": [
                             {
-                                "roll":"4d6/2",
-                                "type":"fire"
+                                "roll": "4d6/2",
+                                "type": "fire"
                             },
                             {
-                                "roll":"4d6/2",
-                                "type":"radiant"
+                                "roll": "4d6/2",
+                                "type": "radiant"
                             }
                         ],
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.0.roll",
-                                "value":"1d6/2"
+                                "path": "damage.0.roll",
+                                "value": "1d6/2"
                             }
                         ]
                     }
                 ]
             },
             {
-                "name":"Flame Strike - Radiant Scaling",
-                "types":[
+                "name": "Flame Strike - Radiant Scaling",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect",
                     "slot_scale"
                 ],
-                "save":"dexterity",
-                "damage":[
+                "save": "dexterity",
+                "damage": [
                     {
-                        "roll":"4d6",
-                        "type":"fire"
+                        "roll": "4d6",
+                        "type": "fire"
                     },
                     {
-                        "roll":"4d6",
-                        "type":"radiant"
+                        "roll": "4d6",
+                        "type": "radiant"
                     }
                 ],
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.1.roll",
-                        "value":"1d6"
+                        "path": "damage.1.roll",
+                        "value": "1d6"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Flame Strike - Radiant Scaling",
-                        "types":[
+                        "name": "Flame Strike - Radiant Scaling",
+                        "types": [
                             "damage",
                             "slot_scale"
                         ],
-                        "damage":[
+                        "damage": [
                             {
-                                "roll":"4d6/2",
-                                "type":"fire"
+                                "roll": "4d6/2",
+                                "type": "fire"
                             },
                             {
-                                "roll":"4d6/2",
-                                "type":"radiant"
+                                "roll": "4d6/2",
+                                "type": "radiant"
                             }
                         ],
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.1.roll",
-                                "value":"1d6/2"
+                                "path": "damage.1.roll",
+                                "value": "1d6/2"
                             }
                         ]
                     }
@@ -6099,53 +6098,53 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "hazard",
                     "area"
                 ],
-                "area":15,
-                "area_type":"sphere",
-                "hazard_triggers":[
+                "area": 15,
+                "area_type": "sphere",
+                "hazard_triggers": [
                     "turn_end"
                 ]
             }
         ],
         "effects": [
             {
-                "name":"Flaming Sphere",
-                "types":[
+                "name": "Flaming Sphere",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect",
                     "slot_scale"
                 ],
-                "save":"dexterity",
-                "damage":{
-                    "roll":"2d6",
-                    "type":"fire"
+                "save": "dexterity",
+                "damage": {
+                    "roll": "2d6",
+                    "type": "fire"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"1d6"
+                        "path": "damage.roll",
+                        "value": "1d6"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Flaming Sphere",
-                        "types":[
+                        "name": "Flaming Sphere",
+                        "types": [
                             "damage",
                             "slot_scale"
                         ],
-                        "damage":{
-                            "roll":"2d6/2",
-                            "type":"fire"
+                        "damage": {
+                            "roll": "2d6/2",
+                            "type": "fire"
                         },
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.roll",
-                                "value":"1d6/2"
+                                "path": "damage.roll",
+                                "value": "1d6/2"
                             }
                         ]
                     }
@@ -6498,49 +6497,49 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area"
                 ],
-                "area":120,
-                "area_type":"sphere"
+                "area": 120,
+                "area_type": "sphere"
             }
         ],
         "effects": [
             {
-                "name":"Freezing Sphere",
-                "types":[
+                "name": "Freezing Sphere",
+                "types": [
                     "save",
                     "damage",
                     "failure_effect",
                     "slot_scale"
                 ],
-                "save":"constitution",
-                "damage":{
-                    "roll":"10d6",
-                    "type":"cold"
+                "save": "constitution",
+                "damage": {
+                    "roll": "10d6",
+                    "type": "cold"
                 },
-                "slot_scale":[
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"1d6"
+                        "path": "damage.roll",
+                        "value": "1d6"
                     }
                 ],
-                "fail":[
+                "fail": [
                     {
-                        "name":"Freezing Sphere",
-                        "types":[
+                        "name": "Freezing Sphere",
+                        "types": [
                             "damage",
                             "slot_scale"
                         ],
-                        "damage":{
-                            "roll":"10d6/2",
-                            "type":"cold"
+                        "damage": {
+                            "roll": "10d6/2",
+                            "type": "cold"
                         },
-                        "slot_scale":[
+                        "slot_scale": [
                             {
-                                "path":"damage.roll",
-                                "value":"1d6/2"
+                                "path": "damage.roll",
+                                "value": "1d6/2"
                             }
                         ]
                     }
@@ -6665,24 +6664,24 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Geas",
-                "types":[
+                "name": "Geas",
+                "types": [
                     "condition",
                     "save",
                     "flavor"
                 ],
-                "save":"wisdom",
-                "condition":"charmed",
-                "flavor":"While the creature is charmed by you, it takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. A creature that can't understand you is unaffected by the spell."
+                "save": "wisdom",
+                "condition": "charmed",
+                "flavor": "While the creature is charmed by you, it takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. A creature that can't understand you is unaffected by the spell."
             }
         ],
         "higher_level": "When you cast this spell using a spell slot of 7th or 8th level, the duration is 1 year. When you cast this spell using a spell slot of 9th level, the spell lasts until it is ended by one of the spells mentioned above."
@@ -6940,14 +6939,14 @@
         },
         "targets": [
             {
-                "name":"Area Of Effect",
-                "types":[
+                "name": "Area Of Effect",
+                "types": [
                     "area",
                     "hazard"
                 ],
-                "area":10,
-                "area_type":"square",
-                "hazard_triggers":[
+                "area": 10,
+                "area_type": "square",
+                "hazard_triggers": [
                     "enters",
                     "turn_end",
                     "on_cast"
@@ -6956,13 +6955,13 @@
         ],
         "effects": [
             {
-                "name":"Grease",
-                "types":[
+                "name": "Grease",
+                "types": [
                     "save",
                     "condition"
                 ],
-                "save":"dexterity",
-                "condition":"prone"
+                "save": "dexterity",
+                "condition": "prone"
             }
         ],
         "higher_level": ""
@@ -7005,20 +7004,20 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Greater Invisibility",
-                "types":[
+                "name": "Greater Invisibility",
+                "types": [
                     "condition"
                 ],
-                "condition":"invisible"
+                "condition": "invisible"
             }
         ],
         "higher_level": ""
@@ -7166,23 +7165,23 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Guidance",
-                "types":[
+                "name": "Guidance",
+                "types": [
                     "roll_modifier"
                 ],
-                "roll_modifier":{
-                    "roll":"d4",
-                    "affected":"checks",
-                    "end_on_uses":1
+                "roll_modifier": {
+                    "roll": "d4",
+                    "affected": "checks",
+                    "end_on_uses": 1
                 }
             }
         ],
@@ -7222,32 +7221,32 @@
         },
         "targets": [
             {
-                "name":"Single Target",
-                "types":[
+                "name": "Single Target",
+                "types": [
                     "specific"
                 ],
-                "count":1
+                "count": 1
             }
         ],
         "effects": [
             {
-                "name":"Guiding Bolt",
-                "types":[
+                "name": "Guiding Bolt",
+                "types": [
                     "spell_attack",
                     "damage",
                     "hit_modifier",
                     "slot_scale"
                 ],
-                "damage":{
-                    "roll":"4d6",
-                    "type":"radiant"
+                "damage": {
+                    "roll": "4d6",
+                    "type": "radiant"
                 },
-                "hit_modifier":"advantage",
-                "hit_modifier_count":1,
-                "slot_scale":[
+                "hit_modifier": "advantage",
+                "hit_modifier_count": 1,
+                "slot_scale": [
                     {
-                        "path":"damage.roll",
-                        "value":"1d6"
+                        "path": "damage.roll",
+                        "value": "1d6"
                     }
                 ]
             }
@@ -7331,7 +7330,7 @@
     {
         "name": "Hallucinatory Terrain",
         "slug": "hallucinatory-terrain",
-        "desc": "The tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to see through the illusion. If the difference isn't obvious by touch, a creature carefully examining the illusion can attempt an Intelligence (Investigation) check against your spell save DC to disbelieve it. A creature who discerns the illusion for what it is, sees it as a vague image superimposed on the terrain.",
+        "desc": "You make natural terrain in a 150-foot cube in range look, sound, and smell like some other sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed in appearance.\n\nThe tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to see through the illusion. If the difference isn't obvious by touch, a creature carefully examining the illusion can attempt an Intelligence (Investigation) check against your spell save DC to disbelieve it. A creature who discerns the illusion for what it is, sees it as a vague image superimposed on the terrain.",
         "casting_time": {
             "quantity": 10,
             "type": "minutes"
@@ -7347,7 +7346,7 @@
             "S",
             "M"
         ],
-        "material": "A stone, a twig, and a bit of green plant.\n\nYou make natural terrain in a 150-foot cube in range look, sound, and smell like some other sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed in appearance.",
+        "material": "A stone, a twig, and a bit of green plant.",
         "ritual": false,
         "level": {
             "label": "4th-level",
@@ -7469,8 +7468,34 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Single Target",
+                "types": [
+                    "specific"
+                ],
+                "count": 1
+            }
+        ],
+        "effects": [
+            {
+                "name": "Heal",
+                "types": [
+                    "damage",
+                    "slot_scale"
+                ],
+                "damage": {
+                    "roll": "70",
+                    "type": "heal"
+                },
+                "slot_scale": [
+                    {
+                        "path": "damage.roll",
+                        "value": "10"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 7th level or higher, the amount of healing increases by 10 for each slot level above 6th."
     },
     {
@@ -7502,8 +7527,34 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Single Target",
+                "types": [
+                    "specific"
+                ],
+                "count": 1
+            }
+        ],
+        "effects": [
+            {
+                "name": "Healing Word",
+                "types": [
+                    "damage",
+                    "slot_scale"
+                ],
+                "damage": {
+                    "roll": "1d4+{spellcasting_ability_modifier}",
+                    "type": "heal"
+                },
+                "slot_scale": [
+                    {
+                        "path": "damage.roll",
+                        "value": "1d4"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d4 for each slot level above 1st."
     },
     {
@@ -7573,8 +7624,56 @@
             "archetype": "Paladin: Oathbreaker",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Hellish Rebuke",
+                "types": [
+                    "specific"
+                ],
+                "count": 1
+            }
+        ],
+        "effects": [
+            {
+                "name": "Hellish Rebuke",
+                "types": [
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save": "dexterity",
+                "damage": {
+                    "roll": "2d10",
+                    "type": "fire"
+                },
+                "slot_scale": [
+                    {
+                        "path": "damage.roll",
+                        "value": "1d10"
+                    }
+                ],
+                "fail": [
+                    {
+                        "name": "Hellish Rebuke",
+                        "types": [
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage": {
+                            "roll": "2d10/2",
+                            "type": "fire"
+                        },
+                        "slot_scale": [
+                            {
+                                "path": "damage.roll",
+                                "value": "1d10/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st."
     },
     {
@@ -7683,8 +7782,40 @@
             "archetype": "Warlock: Great Old One",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Single Target",
+                "types": [
+                    "specific",
+                    "prerequisites"
+                ],
+                "count": 1,
+                "prerequisites":{
+                    "abilities.intelligence.score":{
+                        "operator":">",
+                        "value":4
+                    }
+                },
+                "prerequisites_match": "all"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Hideous Laughter",
+                "types": [
+                    "save",
+                    "condition",
+                    "save_repeat"
+                ],
+                "save": "wisdom",
+                "save_repeat": "damage",
+                "condition": [
+                    "prone",
+                    "incapacitated"
+                ],
+                "condition_apply":"any"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -7725,8 +7856,35 @@
             "archetype": "Cleric: War<br/> Paladin: Vengeance",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific",
+                    "slot_scale"
+                ],
+                "count":1,
+                "slot_scale":[
+                    {
+                        "path":"count",
+                        "value":1
+                    }
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Hold Monster",
+                "types":[
+                    "save",
+                    "condition",
+                    "save_repeat"
+                ],
+                "save":"wisdom",
+                "save_repeat":"end",
+                "condition":"paralyzed"
+            }
+        ],
         "higher_level": "When you cast this spell using a level 6 or higher location, you can target an additional creature for each level of location beyond the fifth. The creatures must be within 30 feet o f each other when you target them."
     },
     {
@@ -7768,8 +7926,42 @@
             "archetype": "Paladin: Vengeance",
             "circles": "Arctic"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific",
+                    "slot_scale",
+                    "prerequisites"
+                ],
+                "count":1,
+                "slot_scale":[
+                    {
+                        "path":"count",
+                        "value":1
+                    }
+                ],
+                "prerequitsites":{
+                    "creature_type":{
+                        "operator":"==",
+                        "value":"humanoid"
+                    }
+                }
+            }
+        ],
+        "effects": [
+            {
+                "name":"Hold Person",
+                "types":[
+                    "save",
+                    "condition",
+                    "save_repeat"
+                ],
+                "save":"wisdom",
+                "save_repeat":"end",
+                "condition":"paralyzed"
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional humanoid for each slot level above 2nd. The humanoids must be within 30 feet of each other when you target them."
     },
     {
@@ -7880,8 +8072,31 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":30,
+                "area_type":"cube"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Hypnotic Pattern",
+                "types":[
+                    "save",
+                    "condition"
+                ],
+                "save":"wisdom",
+                "condition":[
+                    "charmed",
+                    "incapacitated"
+                ],
+                "condition_apply":"all"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -7917,8 +8132,71 @@
             "archetype": "Cleric: Tempest<br/> Paladin: Ancients",
             "circles": "Arctic"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":{
+                    "diameter":40,
+                    "height":40
+                }
+            }
+        ],
+        "effects": [
+            {
+                "name":"Ice Storm",
+                "types":[
+                    "save",
+                    "damage",
+                    "slot_scale",
+                    "failure_effect"
+                ],
+                "save":"dexterity",
+                "damage":[
+                    {
+                        "roll":"2d8",
+                        "type":"bludgeoning:magical"
+                    },
+                    {
+                        "roll":"4d6",
+                        "type":"cold"
+                    }
+                ],
+                "slot_scale":[
+                    {
+                        "path":"damage.0.roll",
+                        "value":"1d8"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Ice Storm",
+                        "types":[
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage":[
+                            {
+                                "roll":"2d8/2",
+                                "type":"bludgeoning:magical"
+                            },
+                            {
+                                "roll":"4d6/2",
+                                "type":"cold"
+                            }
+                        ],
+                        "slot_scale":[
+                            {
+                                "path":"damage.0.roll",
+                                "value":"1d8/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 5th level or higher, the bludgeoning damage increases by 1d8 for each slot level above 4th."
     },
     {
@@ -8063,8 +8341,48 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Area Of Effect",
+                "types": [
+                    "area",
+                    "hazard"
+                ],
+                "area": 40,
+                "area_type": "sphere",
+                "hazard_triggers":[
+                    "enters",
+                    "turn_end"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name": "Incendiary Cloud",
+                "types": [
+                    "save",
+                    "damage",
+                    "failure_effect"
+                ],
+                "save": "dexterity",
+                "damage": {
+                    "roll": "10d8",
+                    "type": "fire"
+                },
+                "fail": [
+                    {
+                        "name": "Incendiary Cloud",
+                        "types": [
+                            "damage"
+                        ],
+                        "damage": {
+                            "roll": "10d8/2",
+                            "type": "fire"
+                        }
+                    }
+                ]
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -8095,8 +8413,35 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Inflict Wounds",
+                "types":[
+                    "spell_attack",
+                    "damage",
+                    "slot_scale"
+                ],
+                "damage":{
+                    "roll":"3d10",
+                    "type":"necrotic"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d10"
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st."
     },
     {
@@ -8134,8 +8479,63 @@
             "archetype": "",
             "circles": "Desert, Grassland, Swamp, Underdark"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Area Of Effect",
+                "types": [
+                    "area",
+                    "hazard"
+                ],
+                "area": 40,
+                "area_type": "sphere",
+                "hazard_triggers":[
+                    "turn_end",
+                    "enters",
+                    "on_cast"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name": "Insect Plague",
+                "types": [
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save": "constitution",
+                "damage": {
+                    "roll": "4d10",
+                    "type": "piercing:magical"
+                },
+                "slot_scale": [
+                    {
+                        "path": "damage.roll",
+                        "value": "1d10"
+                    }
+                ],
+                "fail": [
+                    {
+                        "name": "Insect Plague",
+                        "types": [
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage": {
+                            "roll": "4d10/2",
+                            "type": "piercing:magical"
+                        },
+                        "slot_scale": [
+                            {
+                                "path": "damage.roll",
+                                "value": "1d10/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d10 for each slot level above 5th."
     },
     {
@@ -8209,8 +8609,31 @@
             "archetype": "Druid: Grassland",
             "circles": "Grassland"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific",
+                    "slot_scale"
+                ],
+                "count":1,
+                "slot_scale":[
+                    {
+                        "path":"count",
+                        "value":1
+                    }
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Invisibility",
+                "types":[
+                    "condition"
+                ],
+                "condition":"invisible"
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd."
     },
     {
@@ -8245,8 +8668,39 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific",
+                    "prerequisites"
+                ],
+                "count":1,
+                "prerequisites":{
+                    "condition_immune:charmed":{
+                        "operator":"==",
+                        "value":false
+                    }
+                }
+            }
+        ],
+        "effects": [
+            {
+                "name":"Irresistible Dance",
+                "types":[
+                    "roll_modifier",
+                    "hit_modifier"
+                ],
+                "roll_modifier":{
+                    "roll":"disadvantage",
+                    "affected":[
+                        "attacks",
+                        "saves.dexterity"
+                    ]
+                },
+                "hit_modifier":"advantage"
+            }
+        ],
         "higher_level": ""
     },
     {

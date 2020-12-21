@@ -15,6 +15,9 @@
       - `diameter` - (int) (required) Max diameter
       - `thickness` - (int) (required) Ring thickness
       - `height` - (int) (required) Ring height
+    - If `area_type` == `cylinder`:
+      - `diameter` - (int) (required) Cylinder diameter
+      - `height` - (int) (required) Cylinder height
   - `area_type` - "string" (required) `sphere`, `cube`, `line`, `cone`, `square`, `rectangle`, `ring`
 - `prerequisites` - Indicates that the spell has prerequisites
   - `prerequisites` - {dict} (required) Prerequisite definitions
@@ -25,6 +28,7 @@
       - Any creature attribute path
       - `condition:<any>` - Selects a specific condition
       - `affected:<any>` - Selects a specific spell effect, such as `affected:Black Tentacles`
+      - `condition_immune:<any>` - Matches if immune to condition
   - `prerequisites_match` - "string" (required) Either of `all`, `any`. Indicates whether the target must match all or any of the prerequisites.
 - `slot_scale` - Indicates that the spell scales with higher slot levels
   - `slot_scale` - [list] (required)
@@ -61,7 +65,7 @@
   - `save` - "string" (required) Save name, such as `strength` or `dexterity`
   - `save_modifier` - "string" (optional) Add a modifier, `advantage`, or `disadvantage` to the saving throw.
 - `save_repeat` - Indicates that the save should be repeated each round.
-  - `save_repeat` - "string" (required) When the save should occur on the target's turn. Any of `start` or `end`.
+  - `save_repeat` - "string" (required) When the save should occur on the target's turn. Any of `start`, `end`, or `damage` (this may occur outside of the target's turn).
 - `cantrip_scaling` - Indicates that the spell will change as the player levels.
   - `{level number}` - {dict} (required at least 1)
     - `target` - "string" (required) Path inside the effect dict, such that damage:{roll:-} -> `damage.roll`
@@ -74,7 +78,8 @@
       - `operation` - "string" (required) Any of `add`, `subtract`, `multiply`, `divide`, `set`
       - `value` - "roll string" (required) Value to use with operator on attribute
 - `condition` - Indicates that the effect applies a condition to the target
-  - `condition` - "string" (required) Condition to apply to the target. Duration is assumed to be that of the spell.
+  - `condition` - "string"/[list] (required) Condition or list of conditions to apply to the target. Duration is assumed to be that of the spell.
+  - `condition_apply` - "string" (optional) `any` or `all`, indicates whether all conditions must be applied or not. Only applicable in the case of `condition` being a list.
 - `flavor` - Indicates that the effect will output flavor text on a success
   - `flavor` - "string" (required) Flavor text to output/report
 - `roll_modifier` - Indicates that the effect will modify the target's rolls on a success
@@ -108,6 +113,7 @@
       - Any creature attribute path
       - `condition:<any>` - Selects a specific condition
       - `affected:<any>` - Selects a specific spell effect, such as `affected:Black Tentacles`
+      - `condition_immune:<any>` - Matches if immune to condition
   - `prerequisites_match` - "string" (required) Either of `all`, `any`. Indicates whether the target must match all or any of the prerequisites.
 - `single_option` - Indicates that this option should not be selected along with other effects with the `single_option` flag.
 - `attack_modifier` - Indicates that the effect modifies the target's attacks.
