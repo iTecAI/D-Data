@@ -5614,8 +5614,42 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Finger of Death",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect"
+                ],
+                "save":"constitution",
+                "damage":{
+                    "roll":"7d8+30",
+                    "type":"necrotic"
+                },
+                "failure_effect":[
+                    {
+                        "name":"Finger of Death",
+                        "types":[
+                            "damage"
+                        ],
+                        "damage":{
+                            "roll":"(7d8+30)/2",
+                            "type":"necrotic"
+                        }
+                    }
+                ]
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -5647,8 +5681,44 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Single Target",
+                "types": [
+                    "specific"
+                ],
+                "count": 1
+            }
+        ],
+        "effects": [
+            {
+                "name": "Fire Bolt",
+                "types": [
+                    "spell_attack",
+                    "failure_effect",
+                    "damage",
+                    "cantrip_scaling"
+                ],
+                "damage": {
+                    "roll": "1d10",
+                    "type": "fire"
+                },
+                "cantrip_scaling":{
+                    "5":{
+                        "target":"damage.roll",
+                        "value":"2d10"
+                    },
+                    "11":{
+                        "target":"damage.roll",
+                        "value":"3d10"
+                    },
+                    "17":{
+                        "target":"damage.roll",
+                        "value":"4d10"
+                    }
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -5755,8 +5825,57 @@
             "archetype": "Cleric: Light<br/> Warlock: Fiend",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":40,
+                "area_type":"sphere"
+            }
+        ],
+        "effects": [
+            {
+                "name":"Fireball",
+                "types":[
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save":"dexterity",
+                "damage":{
+                    "roll":"8d6",
+                    "type":"fire"
+                },
+                "slot_scale":[
+                    {
+                        "path":"damage.roll",
+                        "value":"1d6"
+                    }
+                ],
+                "fail":[
+                    {
+                        "name":"Fireball",
+                        "types":[
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage":{
+                            "roll":"8d6/2",
+                            "type":"fire"
+                        },
+                        "slot_scale":[
+                            {
+                                "path":"damage.roll",
+                                "value":"1d6/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd."
     },
     {
