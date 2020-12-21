@@ -11491,8 +11491,44 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Single Target",
+                "types": [
+                    "specific"
+                ],
+                "count": 1
+            }
+        ],
+        "effects": [
+            {
+                "name": "Ray of Frost",
+                "types": [
+                    "spell_attack",
+                    "failure_effect",
+                    "damage",
+                    "cantrip_scaling"
+                ],
+                "damage": {
+                    "roll": "1d8",
+                    "type": "cold"
+                },
+                "cantrip_scaling": {
+                    "5": {
+                        "target": "damage.roll",
+                        "value": "2d8"
+                    },
+                    "11": {
+                        "target": "damage.roll",
+                        "value": "3d8"
+                    },
+                    "17": {
+                        "target": "damage.roll",
+                        "value": "4d8"
+                    }
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -11563,8 +11599,27 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Regenerate",
+                "type":[
+                    "damage"
+                ],
+                "damage":{
+                    "roll":"4d8+15",
+                    "type":"heal"
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -11706,8 +11761,28 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Resistance",
+                "types":[
+                    "roll_modifier"
+                ],
+                "roll_modifier":{
+                    "roll":"1d4",
+                    "affected":"saves",
+                    "end_on_uses":1
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -11882,8 +11957,44 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Single Target",
+                "types": [
+                    "specific"
+                ],
+                "count": 1
+            }
+        ],
+        "effects": [
+            {
+                "name": "Sacred Flame",
+                "types": [
+                    "spell_attack",
+                    "failure_effect",
+                    "damage",
+                    "cantrip_scaling"
+                ],
+                "damage": {
+                    "roll": "1d8",
+                    "type": "radiant"
+                },
+                "cantrip_scaling": {
+                    "5": {
+                        "target": "damage.roll",
+                        "value": "2d8"
+                    },
+                    "11": {
+                        "target": "damage.roll",
+                        "value": "3d8"
+                    },
+                    "17": {
+                        "target": "damage.roll",
+                        "value": "4d8"
+                    }
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -11955,8 +12066,36 @@
             "archetype": "Cleric: Light<br/> Warlock: Fiend",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Multiple Targets",
+                "types":[
+                    "specific",
+                    "allow_repeats",
+                    "slot_scale"
+                ],
+                "count":3,
+                "slot_scale":[
+                    {
+                        "path":"count",
+                        "value":1
+                    }
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Scorching Ray",
+                "types":[
+                    "spell_attack",
+                    "damage"
+                ],
+                "damage":{
+                    "roll":"2d6",
+                    "type":"fire"
+                }
+            }
+        ],
         "higher_level": "When you cast this spell using a 3 or higher level spell slot, you generate an additional radius for each level of higher spell slot 2."
     },
     {
@@ -12226,7 +12365,7 @@
     {
         "name": "Shatter",
         "slug": "shatter",
-        "desc": "A sudden loud ringing noise, painfully intense, erupts from a point of your choice within range. Each creature in a 10-\u00ad--foot-\u00ad--radius sphere centered on that point must make a Constitution saving throw. A creature takes 3d8 thunder damage on a failed save, or half as much damage on a successful one. A creature made of inorganic material such as stone,crystal, or metal has disadvantage on this saving throw. A nonmagical object that isn't being worn or carried also takes the damage if it's in the spell's area.",
+        "desc": "A sudden loud ringing noise, painfully intense, erupts from a point of your choice within range. Each creature in a 10-foot-radius sphere centered on that point must make a Constitution saving throw. A creature takes 3d8 thunder damage on a failed save, or half as much damage on a successful one. A creature made of inorganic material such as stone,crystal, or metal has disadvantage on this saving throw. A nonmagical object that isn't being worn or carried also takes the damage if it's in the spell's area.",
         "casting_time": {
             "quantity": 1,
             "type": "action"
@@ -12256,8 +12395,57 @@
             "archetype": "Cleric: Tempest",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Area Of Effect",
+                "types": [
+                    "area"
+                ],
+                "area": 20,
+                "area_type": "sphere"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Shatter",
+                "types": [
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save": "constitution",
+                "damage": {
+                    "roll": "3d8",
+                    "type": "thunder"
+                },
+                "slot_scale": [
+                    {
+                        "path": "damage.roll",
+                        "value": "1d8"
+                    }
+                ],
+                "fail": [
+                    {
+                        "name": "Shatter",
+                        "types": [
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage": {
+                            "roll": "3d8/2",
+                            "type": "thunder"
+                        },
+                        "slot_scale": [
+                            {
+                                "path": "damage.roll",
+                                "value": "1d8/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
     },
     {
@@ -12294,7 +12482,21 @@
             "circles": ""
         },
         "targets": [],
-        "effects": [],
+        "effects": [
+            {
+                "name":"Shield",
+                "types":[
+                    "attribute"
+                ],
+                "attributes":[
+                    {
+                        "path":"armor_class.base",
+                        "operation":"add",
+                        "value":5
+                    }
+                ]
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -12331,8 +12533,30 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Shield",
+                "types":[
+                    "attribute"
+                ],
+                "attributes":[
+                    {
+                        "path":"armor_class.base",
+                        "operation":"add",
+                        "value":2
+                    }
+                ]
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -12401,8 +12625,44 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name": "Single Target",
+                "types": [
+                    "specific"
+                ],
+                "count": 1
+            }
+        ],
+        "effects": [
+            {
+                "name": "Shocking Grasp",
+                "types": [
+                    "spell_attack",
+                    "failure_effect",
+                    "damage",
+                    "cantrip_scaling"
+                ],
+                "damage": {
+                    "roll": "1d8",
+                    "type": "lightning"
+                },
+                "cantrip_scaling": {
+                    "5": {
+                        "target": "damage.roll",
+                        "value": "2d8"
+                    },
+                    "11": {
+                        "target": "damage.roll",
+                        "value": "3d8"
+                    },
+                    "17": {
+                        "target": "damage.roll",
+                        "value": "4d8"
+                    }
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -12553,8 +12813,35 @@
             "archetype": "Warlock: Archfey",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Multiple Targets",
+                "types":[
+                    "area",
+                    "hp_selection",
+                    "slot_scale"
+                ],
+                "area":40,
+                "area_type":"sphere",
+                "hp_roll":"5d8",
+                "hp_sort":"ascending",
+                "slot_scale":[
+                    {
+                        "path":"hp_roll",
+                        "value":"2d8"
+                    }
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Sleep",
+                "types":[
+                    "condition"
+                ],
+                "condition":"unconscious"
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, roll an additional 2d8 for each slot level above 1st."
     },
     {
@@ -12593,8 +12880,35 @@
             "archetype": "Cleric: Tempest",
             "circles": "Arctic"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area",
+                    "hazard"
+                ],
+                "area":{
+                    "diameter":80,
+                    "height":20
+                },
+                "area_type":"cylinder",
+                "hazard_triggers":[
+                    "enters",
+                    "turn_start"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Sleet Storm",
+                "types":[
+                    "save",
+                    "condition"
+                ],
+                "save":"dexterity",
+                "condition":"prone"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -12828,7 +13142,7 @@
     {
         "name": "Spike Growth",
         "slug": "spike-growth",
-        "desc": "The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes difficult terrain for the duration. When a creature moves into or within the area, it takes 2d4 piercing damage for every 5 feet it travels. The development of land is camouflaged to look natural. Any creature that does not see the area when the spell is spell casts must make a Wisdom (Perception) opposite the DD backup your fate or it does not recognize the dangerous nature of the ground before entering.",
+        "desc": "The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes difficult terrain for the duration. When a creature moves into or within the area, it takes 2d4 piercing damage for every 5 feet it travels. The development of land is camouflaged to look natural. Any creature that does not see the area when the spell is spell casts must make a Wisdom (Perception) against your spell save DC or it does not recognize the dangerous nature of the ground before entering.",
         "casting_time": {
             "quantity": 1,
             "type": "action"
@@ -12860,8 +13174,32 @@
             "archetype": "Cleric: Nature",
             "circles": "Arctic, Mountain"
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area",
+                    "hazard"
+                ],
+                "area":40,
+                "area_type":"circle",
+                "hazard_triggers":[
+                    "move_in"
+                ]
+            }
+        ],
+        "effects": [
+            {
+                "name":"Spike Growth",
+                "types":[
+                    "damage"
+                ],
+                "damage":{
+                    "roll":"2d4",
+                    "type":"piercing:magical"
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -13127,8 +13465,26 @@
             "archetype": "Cleric: Knowledge",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Suggestion",
+                "types":[
+                    "save",
+                    "condition"
+                ],
+                "save":"wisdom",
+                "condition":"charmed"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -13201,8 +13557,45 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":120,
+                "area_type":"sphere"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Sunburst",
+                "types": [
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "condition"
+                ],
+                "save": "constitution",
+                "damage": {
+                    "roll": "12d6",
+                    "type": "radiant"
+                },
+                "condition":"blinded",
+                "fail": [
+                    {
+                        "name": "Sunburst",
+                        "types": [
+                            "damage"
+                        ],
+                        "damage": {
+                            "roll": "12d6/2",
+                            "type": "radiant"
+                        }
+                    }
+                ]
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -13453,8 +13846,57 @@
             "archetype": "Cleric: Tempest",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Area Of Effect",
+                "types":[
+                    "area"
+                ],
+                "area":15,
+                "area_type":"cube"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Thunderwave",
+                "types": [
+                    "save",
+                    "damage",
+                    "failure_effect",
+                    "slot_scale"
+                ],
+                "save": "dexterity",
+                "damage": {
+                    "roll": "2d8",
+                    "type": "thunder"
+                },
+                "slot_scale": [
+                    {
+                        "path": "damage.roll",
+                        "value": "1d8"
+                    }
+                ],
+                "fail": [
+                    {
+                        "name": "Thunderwave",
+                        "types": [
+                            "damage",
+                            "slot_scale"
+                        ],
+                        "damage": {
+                            "roll": "2d8/2",
+                            "type": "fire"
+                        },
+                        "slot_scale": [
+                            {
+                                "path": "damage.roll",
+                                "value": "1d8/2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st."
     },
     {
@@ -13791,8 +14233,26 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"True Strike",
+                "types":[
+                    "hit_modifier"
+                ],
+                "hit_modifier":"advantage",
+                "hit_modifier_count":1,
+                "hit_modifier_source":"caster"
+            }
+        ],
         "higher_level": ""
     },
     {
@@ -13899,14 +14359,50 @@
             "archetype": "",
             "circles": ""
         },
-        "targets": [],
-        "effects": [],
+        "targets": [
+            {
+                "name":"Single Target",
+                "types":[
+                    "specific"
+                ],
+                "count":1
+            }
+        ],
+        "effects": [
+            {
+                "name":"Vicious Mockery",
+                "types":[
+                    "save",
+                    "damage",
+                    "cantrip_scaling"
+                ],
+                "save":"wisdom",
+                "damage":{
+                    "roll":"1d4",
+                    "type":"psychic"
+                },
+                "cantrip_scaling":{
+                    "5":{
+                        "target":"damage.roll",
+                        "value":"2d4"
+                    },
+                    "11":{
+                        "target":"damage.roll",
+                        "value":"3d4"
+                    },
+                    "17":{
+                        "target":"damage.roll",
+                        "value":"4d4"
+                    }
+                }
+            }
+        ],
         "higher_level": ""
     },
     {
         "name": "Wall of Fire",
         "slug": "wall-of-fire",
-        "desc": "You create a wall of fire on a solid surface within range. You can make the wall up to 60 feet long, 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration. When the wall appears, each creature within its area must make a Dexterity saving throw. On a failed save, a creature takes 5d8 fire damage, or half as much damage on a successful save. One side of the wall, selected by you when you cast this spell, deals 5d8 fire damage to each creature that ends its turn within 10 feet o f that side or inside the wall. A creature takes the same damage when it enters the wall for the first time on a turn or ends its turn there. The other side o f the wall deals no damage. The other side of the wall deals no damage.",
+        "desc": "You create a wall of fire on a solid surface within range. You can make the wall up to 60 feet long, 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration. When the wall appears, each creature within its area must make a Dexterity saving throw. On a failed save, a creature takes 5d8 fire damage, or half as much damage on a successful save. One side of the wall, selected by you when you cast this spell, deals 5d8 fire damage to each creature that ends its turn within 10 feet of that side or inside the wall. A creature takes the same damage when it enters the wall for the first time on a turn or ends its turn there. The other side o f the wall deals no damage. The other side of the wall deals no damage.",
         "casting_time": {
             "quantity": 1,
             "type": "action"

@@ -38,7 +38,7 @@
       - `value` - (any) (required) Value to add.
 - `hazard` - Indicates that the spell will not immediately target creatures but will instead act as a hazard.
   - `hazard_triggers` - [list] (required)
-    - Item - "string" (required at least 1) Any of `enters`, `exits`, `turn_start`, `turn_end`, `on_cast` (Effects will trigger on casting as well as on hazard triggers)
+    - Item - "string" (required at least 1) Any of `enters`, `exits`, `turn_start`, `turn_end`, `moves_in`, `on_cast` (Effects will trigger on casting as well as on hazard triggers)
 - `single_option` - Indicates that this option should not be selected along with other targets with the `single_option` flag.
 - `hp_selection` - Indicates that the targets are selected via HP (i.e. the sleep spell)
   - `hp_roll` - "roll string" (required) The amount of HP to affect. Treated as a roll string.
@@ -87,7 +87,7 @@
 - `roll_modifier` - Indicates that the effect will modify the target's rolls on a success
   - `roll_modifier` - {dict} (required)
     - `roll` - "string" (required) Roll string to add to the target's rolls, or "advantage"/"disadvantage".
-    - `affected` - [list] (required at least one) List of rolls to affect. May be `attacks`, `saves`, or `checks`. May also be more specific for `saves` and `checks`, such as `checks.stealth` or `saves.intelligence`
+    - `affected` - [list] (required at least one) List of rolls to affect. May be `attacks`, `saves`, or `checks`. May also be more specific  such as `checks.stealth`, `saves.intelligence`, or `attacks.strength`.
     - `source` - "string" (optional) Restricts effect to rolls caused by/targeted at `source`. Current options: `caster`.
     - `end_on_uses` - (int) (optional) Rolls that can be made until the effect ends. Defaults to unlimited if not included.
 - `slot_scale` - Indicates that the spell scales with higher slot levels
@@ -128,6 +128,7 @@
 - `hit_modifier` - Indicates that attack rolls to hit the target will be modified.
   - `hit_modifier` - "string"/"roll string" (required) `advantage`, `disadvantage`, or a roll string.
   - `hit_modifier_count` - (int) (optional) The number of hits to affect before this segment of the effect ends.
+  - `hit_modifier_source` - "string" (optional) Restricts effect to damage caused by `source`. Current options: `caster`.
 
 ### Formatting Flags
 Some string values can contain formatting flags, as listed below.
