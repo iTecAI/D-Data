@@ -57,7 +57,10 @@ for item in raw:
             'circles':item['circles']
         },
         'targets':[],
-        'effects':[]
+        'effects':[],
+        'document__slug':item['document__slug'],
+        'document__title':item['document__title'],
+        'document__license_url':item['document__license_url']
     })
 with open('spells.json','r') as f:
     old = json.load(f)
