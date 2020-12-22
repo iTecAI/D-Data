@@ -222,7 +222,7 @@
                 ],
                 "attributes": [
                     {
-                        "path": "hit_points.current",
+                        "path": "hit_points.max",
                         "operation": "add",
                         "value": 5
                     }
@@ -9794,7 +9794,7 @@
                     "attribute"
                 ],
                 "attribute": {
-                    "path": "armor_class.base",
+                    "path": "armor_class.current",
                     "operation": "set",
                     "value": "13+{dexterity_mod}"
                 }
@@ -13276,7 +13276,7 @@
                 ],
                 "attributes": [
                     {
-                        "path": "armor_class.base",
+                        "path": "armor_class.current",
                         "operation": "add",
                         "value": 5
                     }
@@ -13339,7 +13339,7 @@
                 ],
                 "attributes": [
                     {
-                        "path": "armor_class.base",
+                        "path": "armor_class.current",
                         "operation": "add",
                         "value": 2
                     }
