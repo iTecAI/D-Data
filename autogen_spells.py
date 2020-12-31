@@ -58,6 +58,7 @@ for item in raw:
         },
         'targets':[],
         'effects':[],
+        'concentaration':item['concentration'] == 'yes',
         'document__slug':item['document__slug'],
         'document__title':item['document__title'],
         'document__license_url':item['document__license_url']
