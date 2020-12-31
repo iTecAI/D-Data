@@ -16,13 +16,13 @@ for item in raw:
         try:
             if 'up to' in item['duration'].lower():
                 dur = {
-                    'quatity':int(item['duration'].lower().split('up to ')[1].split(' ')[0]),
+                    'quantity':int(item['duration'].lower().split('up to ')[1].split(' ')[0]),
                     'type':item['duration'].lower().split('up to ')[1].split(' ')[1],
                     'up_to':True
                 }
             else:
                 dur = {
-                    'quatity':int(item['duration'].lower().split(' ')[0]),
+                    'quantity':int(item['duration'].lower().split(' ')[0]),
                     'type':item['duration'].lower().split(' ')[1],
                     'up_to':False
                 }
